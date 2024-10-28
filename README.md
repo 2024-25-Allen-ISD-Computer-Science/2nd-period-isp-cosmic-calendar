@@ -1,2 +1,13 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/5B2kjQgB)
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=16697351)
+# Vision Statement
+Through visual representation and thorough explanations, we aim to create a solution for scheduling events across celestial bodies.
+
+## Roles
+| Role            | Name            | GitHub                                            | Web Portfolio                                                                                                         |
+|-----------------|-----------------|------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| Product Manager |[Daniel-Williams] |(https://github.com/DanielComputerScience)| [Daniel's Portfolio](https://www.codermerlin.academy/users/elijah-williams/Digital%20Portfolio/index.html)|
+                                                                             
+| Project Manager | Matthew Roman   | [Matthew-Roman](https://github.com/Matthew-Roman)          | [Matt's Portfolio](https://www.codermerlin.academy/users/matthew-roman/Digital%20Portfolio/index.html) |
+| Release Manager | Theo Yakovlev   | [Theo-Yakovlev](https://github.com/theo-y-hky39)                               | [Theo's Portfolio](https://codermerlin.academy/users/fyodor-theodore-yakovlev/Digital%20Portfolio/index.html)                                                                                                      |
+| QA Analyst      | Aarman Islam    | [Aarman-Islam]()                                | [Aarman's Portfolio](https://www.codermerlin.academy/users/aarman-islam/Digital%20Portfolio/index.html)                                                                                                     |
+| UI/UX Designer  | Kyle Hernandez  | [Kyle-Hernandez](https://github.com/kylesdev91/kylesdev91.github.io)                              | [Kyle's Portfolio](https://www.codermerlin.academy/users/kyle-hernandez/Digital%20Portfolio/index.html)                                                                                                       |
+| DBA             | Daniel Williams | 
