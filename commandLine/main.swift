@@ -5,7 +5,8 @@ func getInput(want: String, Question: String) -> String {
     } else {
         return "No input"
     }
-}  
+}
+
 func main() {
     let months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     var month = getInput(want: "month", Question: "What month is it?")
@@ -17,6 +18,8 @@ func main() {
     let day = getInput(want: "day", Question: "What day is it?")
     let year = getInput(want: "year", Question: "What year is it?")
     print("It is " + month + " " + day + " " + year)
-    
+    print("What celestial body do you want the calendar of?")
+    readLine()
+    print("Waning Cresent 2024")
 }
 main()
