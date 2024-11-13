@@ -19,6 +19,6 @@ class Main {
   }
  
   else {
-      System.out.println("Not a valid month");
+      System.out.println("Not a valid month.");
   }
 }
