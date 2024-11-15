@@ -270,3 +270,25 @@ body {font-family: Verdana, sans-serif;}
 @media screen and (max-width: 290px) {
   .weekdays li, .days li {width: 12.2%;}
 }
+.button {
+    transition-duration:0.4s;
+    border: none;
+    color: mediumpurple;
+    padding: 60px 256px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 80px 40px;
+    cursor: pointer;
+    animation-name: fall;
+    animation-duration: 4s;
+}
+.button1 {background-color: mediumpurple;}
+.button:hover {
+    background-color: #463E3F;
+    color: mediumpurple;
+    animation-name: mymove;
+    animation-iteration-count: infinite;
+    
+}
