@@ -61,7 +61,7 @@
 
 body {
     
-    background-image: linear-gradient(to bottom right, gray, black);
+    background-image: linear-gradient(to bottom right, black, gray);
 }
 top {
     background-color: gray;
