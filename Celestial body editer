@@ -30,6 +30,17 @@
       <br>
       <div class="box">
 	<br>
+  <div class="transbox"
+  <div class="Editer">
+<form action="/action_page.php">
+ <lable for="Orbit">Amount of days it takes for it to go around the sun</lable>
+ <input type="text" id="Orbit" name="Orbit"><br><br>
+ <lable for="Rotation Speed">How long does it take to rotate on it's axis</lable>
+ <input type="text" id="Rotation Speed" name="Rotation Speed"><br><br>
+ <input type="submit" value="Submit">
+</form>
+</div>
+  </div>
 	<h1>CSS Calendar</h1>
 
 <div class="month">      

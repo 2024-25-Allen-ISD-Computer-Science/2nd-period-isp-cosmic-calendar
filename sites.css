@@ -256,6 +256,12 @@ body {font-family: Verdana, sans-serif;}
   background: #1abc9c;
   color: white !important
 }
+div.transbox {
+opacity: 0.6;
+background-color: #777
+
+}
+
 
 /* Add media queries for smaller screens */
 @media screen and (max-width:720px) {
