@@ -147,9 +147,13 @@ a {
     background-color: #463E3F;
     color: lightblue;
 }
-button img { 
-  width: 100px; /* Adjust the width as needed */ 
+ .png-button { 
+  background: url('your-image.png') no-repeat center center; 
+  background-size: contain; 
+  border: none; 
+  width: 100px; /* Adjust as needed */ 
   height: auto; 
+  cursor: pointer;
 }
 
 /* Style the navigation bar */
