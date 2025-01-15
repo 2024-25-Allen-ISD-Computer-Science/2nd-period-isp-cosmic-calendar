@@ -147,6 +147,10 @@ a {
     background-color: #463E3F;
     color: lightblue;
 }
+button img { 
+  width: 100px; /* Adjust the width as needed */ 
+  height: auto; 
+}
 
 /* Style the navigation bar */
 .navbar {
