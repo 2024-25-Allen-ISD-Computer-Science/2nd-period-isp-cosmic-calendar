@@ -124,6 +124,13 @@ name {
     color: #6495ED;
     /*background-color: #ADD8F9;*/
 }
+date {
+  font-family: verdana;
+  font-weight: bold;
+  font-size: 30px;
+  color: #6495ED;
+  /*background-color: #ADD8F9;*/
+}
 a {
     font-family: verdana;
     text-decoration: none;
@@ -252,6 +259,11 @@ body {font-family: Verdana, sans-serif;}
   color: #777;
 }
 
+.days li:hover {
+  background: #c8e2dd;
+}
+
+}
 .days li .active {
   padding: 5px;
   background: #1abc9c;
