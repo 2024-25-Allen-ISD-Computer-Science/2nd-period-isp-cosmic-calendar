@@ -26,14 +26,23 @@ var currentDate = new Date();
 var month = currentDate.toLocaleString('default', { month: 'long' });
 var year = currentDate.getFullYear();
 var day = currentDate.getDate();
+var hours = currentDate.getHours(); 
+var minutes = currentDate.getMinutes(); 
+var seconds = currentDate.getSeconds();
+
+// Format the time to always have two digits 
+if (minutes < 10) minutes = '0' + minutes; 
+if (seconds < 10) seconds = '0' + seconds;
 
 // Display the date on the webpage
 document.getElementById('month').innerText = month; 
 document.getElementById('year').innerText = year;
+document.getElementById('time').innerText = time;
 
 // Display the full date in the specific box
 var fullDate = month + " " + day + "th"; // Adjust the "th" as necessary
-document.querySelector('.box date').innerText = fullDate + " 6:30 P.M."; // Update this line as necessary
+var time = hours + ":" + minutes + ":" + seconds;
+document.querySelector('.box date').innerText = fullDate + time; // Update this line as necessary
 
 // Generate the list of days for the current month
 var daysContainer = document.getElementsByClassName('days')[0];
@@ -48,6 +57,7 @@ for (var i = 1; i <= daysInMonth; i++) {
     } 
     daysContainer.appendChild(dayElement); 
 } 
+setInterval(updateDateTime, 1000);
 // Debugging statements 
 console.log("Current Date: " + currentDate); 
 console.log("Month: " + month); 
