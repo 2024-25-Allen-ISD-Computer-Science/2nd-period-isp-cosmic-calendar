@@ -41,7 +41,7 @@ document.getElementById('time').innerText = time;
 
 // Display the full date in the specific box
 var fullDate = month + " " + day + "th"; // Adjust the "th" as necessary
-var time = hours + ":" + minutes + ":" + seconds;
+var time = " " + hours + ":" + minutes;
 document.querySelector('.box date').innerText = fullDate + time; // Update this line as necessary
 
 // Generate the list of days for the current month
