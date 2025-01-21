@@ -18,7 +18,7 @@
 	'menu main main main right right'
 	'menu footer footer footer footer footer';
     gap: 10px;
-    background-color: #2196F3;
+    /* background-color: #2196F3;*/
     padding: 10px;
 }
 .grid-container > div {
@@ -158,9 +158,13 @@ a {
   background: url('your-image.png') no-repeat center center; 
   background-size: contain; 
   border: none; 
-  width: 100px; /* Adjust as needed */ 
-  height: auto; 
   cursor: pointer;
+  display: inline-block;
+  height: 100px;
+}
+.png-button img {
+  height: 100%;
+  width: auto;
 }
 
 /* Style the navigation bar */
@@ -272,6 +276,14 @@ body {font-family: Verdana, sans-serif;}
 .transbox {
 opacity: 0.6;
 background-color: #777
+
+}
+.Convert-Buton:hover {
+  background: #1abc9c;
+
+}
+.Convert-Buton: {
+  width: 40px;
 
 }
 
