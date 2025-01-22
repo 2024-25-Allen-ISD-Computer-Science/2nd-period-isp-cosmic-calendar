@@ -30,6 +30,7 @@ var month = currentDate.toLocaleString('default', { month: 'long' });
 var year = currentDate.getFullYear();
 var day = currentDate.getDate();
 var hours = currentDate.getHours(); 
+if (hours >= 12) hours -= 12;
 var minutes = currentDate.getMinutes(); 
 var seconds = currentDate.getSeconds();
 

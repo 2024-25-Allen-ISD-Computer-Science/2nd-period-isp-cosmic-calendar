@@ -282,10 +282,12 @@ background-color: #777
   background: #1abc9c;
 
 }
-.Convert-Buton: {
-  width: 40px;
-
+.Convert-Buton {
+  border-radius: 10px;
+  background-size: contain;
+  justify-content: center;
 }
+ 
 
 
 /* Add media queries for smaller screens */
