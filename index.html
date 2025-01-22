@@ -1,21 +1,19 @@
-<!-- got to keep up the commits-->
-<!DOCTYPE html>
-<!-- Website - www.codingnepalweb.com -->
-<html lang="en">
-  <head>
-    <meta http-equiv="pragma" content="no-cache">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Galatic Calendar</title>
-    <link rel="icon" type="img/LUNAR CALENDAR 2.svg" href="img/LUNAR CALENDAR 2.svg">
-	
-
-  </head>
-  <body>
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head> 
+		<meta http-equiv="pragma" content="no-cache"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Galactic Calendar</title> 
+		<link rel="icon" type="img/LUNAR CALENDAR 2.svg" href="img/LUNAR CALENDAR 2.svg"> 
+		<style> .active { font-weight: bold; color: red; /* Highlight the active day */ } </style> 
+		<script src="currentDate.js" defer></script> 
+	</head> 
+	<body>
     
 
     <div class="navbar">
       <a class="active" href="index.html">
-	<img src="./img/img/LUNAR CALENDAR.svg" alt="Home" style="width: 40px; height: 20px;">
+	<img src="./img/LUNAR CALENDAR.svg" alt="Home" style="width: 40px; height: 20px;">
 	<a href="methodology/index.html">Methodology</a>
 	<a href="applications/index.html">Applications</a>
 	<a href="DM/index.html"></a>
@@ -50,45 +48,16 @@
       <ul class="weekdays">
       </ul>
 
-      <ul class="days">  
-	<li>Mo</li>
-	<li>Tu</li>
-	<li>We</li>
-	<li>Th</li>
-	<li>Fr</li>
-	<li>Sa</li>
-	<li>Su</li>
-	<li>1</li>
-	<li>2</li>
-	<li>3</li>
-	<li>4</li>
-	<li>5</li>
-	<li>6</li>
-	<li>7</li>
-	<li>8</li>
-	<li>9</li>
-	<li>10</li>
-	<li>11</li>
-	<li>12</li>
-	<li>13</li>
-	<li>14</li>
-	<li>15</li>
-	<li>16</li>
-	<li>17</li>
-	<li>18</li>
-	<li>19</li>
-	<li>20</li>
-	<li>21</li>
-	<li>22</li>
-	<li>23</li>
-	<li>24</li>
-	<li>25</li>
-	<li>26</li>
-	<li>27</li>
-	<li>28</li>
-	<li>29</li>
-	<li>30</li>
-	<li>31</li>
+      <ul class="days"> 
+		<button id="button-sun", class="days">Sun</button> 
+		<button id="button-mon">Mon</button> 
+		<button id="button-tue">Tue</button> 
+		<button id="button-wed">Wed</button> 
+		<button id="button-thu">Thu</button> 
+		<button id="button-fri">Fri</button> 
+		<button id="button-sat">Sat</button>
+	
+	
       </ul>
       <br>
       
@@ -99,10 +68,16 @@
 	  <!-- <button class="button button1" onclick="alert('Switching Pages...')">Switch Pages</button> -->
 	  
     <br>
-    <div class'"grin-container">
-	</div><button class="png-button"> <img src="img/moon.png" alt="Button Image"> </button>
-	<br>
-	<button class="png-button"> <img src="img/Mars.png" alt="Button Image"> </button>
+    <div class="row">
+	<button class="png-button", id="Moon"> <img src="img/moon.png" alt="Button Image"> </button>
+	
+	<button class="png-button", id="Neptune"> <img src="img/Neptune.png" alt="Button Image"> </button>
+	<button class="png-button", id="Mars"> <img src="img/Mars.png" alt="Button Image"> </button>
+	<button class="png-button", id="Uranus"> <img src="img/Uranus.png" alt="Button Image"> </button>
+	<button class="png-button", id="Venus"> <img src="img/Venus.png" alt="Button Image"> </button>
+	<button class="png-button", id="Mercury"> <img src="img/Mercury.png" alt="Button Image"> </button>
+	<button class="png-button", id="Jupiter"> <img src="img/Jupiter.png" alt="Button Image"> </button>
+	<button class="png-button", id="Saturn"> <img src="img/Saturn.png" alt="Button Image"> </button>
 	</div>
 	<br>
 	
@@ -110,15 +85,20 @@
     <br>
     <div class="box">
       <br>
+	  <div class="Convert-Buton">
       <h1> Converted Time</h1>
-	  <span id="month"></span><br>
-      <name> October 11th 6:30 P.M. <name>
+	  <date></date>
+		
       <br>
-    </namediv>
+	  </div>
+    </div>
+	<br>
+	<div id="time"></div>
+	<script src="home.js" defer></script>
   </body>
   <link rel="icon" type="image/x-icon" href="/img/Logo.png" />
   <link rel="stylesheet" href="sites.css" />
-  <script src="home.js" defer></script>
+  
   
 </html>
 
