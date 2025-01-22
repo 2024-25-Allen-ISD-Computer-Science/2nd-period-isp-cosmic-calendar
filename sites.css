@@ -13,6 +13,8 @@
 
 .grid-container {
     display: grid;
+    align-content: center;
+    
     grid-template-areas:
 	'header header header header header header'
 	'menu main main main right right'
@@ -67,17 +69,25 @@ top {
     background-color: gray;
 }
 .box {
-    display: flex;
-    width: 90%;
-    
-    opacity: 0.7;
-    background-color: #112222;
-    border-radius: 10px;
-    margin: 0 auto;
-    align-items: center;
-    flex-direction: column;
-    
-    
+  display: flex;
+  width: 90%;
+  
+  opacity: 0.7;
+  background-color: #112222;
+  border-radius: 10px;
+  margin: 0 auto;
+  align-items: center;
+  flex-direction: column;
+  
+  
+}
+.clearBox {
+  display: flex;
+  width: 90%;
+  border-radius: 10px;
+  margin: 0 auto;
+  align-items: center;
+  flex-direction: column;
 }
 .box embed {
     max-width: 15%;
