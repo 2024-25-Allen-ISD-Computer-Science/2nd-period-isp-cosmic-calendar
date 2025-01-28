@@ -1,3 +1,6 @@
+:root: {
+    --count: 0;
+}
 .main {
     display: flex;
     flex-direction: column;
@@ -13,14 +16,12 @@
 
 .grid-container {
     display: grid;
-    align-content: center;
-    
     grid-template-areas:
 	'header header header header header header'
 	'menu main main main right right'
 	'menu footer footer footer footer footer';
     gap: 10px;
-    /* background-color: #2196F3;*/
+    background-color: #2196F3;
     padding: 10px;
 }
 .grid-container > div {
@@ -63,31 +64,23 @@
 
 body {
     
-    background-image: linear-gradient(to bottom right, black, gray);
+    background-image: url("img/Moon.Close.Up.jpg");
 }
 top {
     background-color: gray;
 }
 .box {
-  display: flex;
-  width: 90%;
-  
-  opacity: 0.7;
-  background-color: #112222;
-  border-radius: 10px;
-  margin: 0 auto;
-  align-items: center;
-  flex-direction: column;
-  
-  
-}
-.clearBox {
-  display: flex;
-  width: 90%;
-  border-radius: 10px;
-  margin: 0 auto;
-  align-items: center;
-  flex-direction: column;
+    display: flex;
+    width: 90%;
+    
+    opacity: 0.7;
+    background-color: #112222;
+    border-radius: 10px;
+    margin: 0 auto;
+    align-items: center;
+    flex-direction: column;
+    
+    
 }
 .box embed {
     max-width: 15%;
@@ -100,7 +93,7 @@ top {
     max-width: 80%;
     max-height: 80%;
 }
-/* Navigation Bar */
+// Navigation Bar
 nav {
     
     
@@ -115,7 +108,11 @@ aa {
 }
 
 
-
+// section {
+    //   content: "";
+    //   display: table;
+    //   clear: both;
+    //}
 h1 {
     color: blue;
     margin-left: 20px;
@@ -133,13 +130,6 @@ name {
     font-size: 30px;
     color: #6495ED;
     /*background-color: #ADD8F9;*/
-}
-date {
-  font-family: verdana;
-  font-weight: bold;
-  font-size: 30px;
-  color: #6495ED;
-  /*background-color: #ADD8F9;*/
 }
 a {
     font-family: verdana;
@@ -163,18 +153,6 @@ a {
 .button:hover {
     background-color: #463E3F;
     color: lightblue;
-}
- .png-button { 
-  background: url('your-image.png') no-repeat center center; 
-  background-size: contain; 
-  border: none; 
-  cursor: pointer;
-  display: inline-block;
-  height: 100px;
-}
-.png-button img {
-  height: 100%;
-  width: auto;
 }
 
 /* Style the navigation bar */
@@ -237,7 +215,7 @@ body {font-family: Verdana, sans-serif;}
   float: left;
   padding-top: 10px;
 }
-
+4
 .month .next {
   float: right;
   padding-top: 10px;
@@ -245,23 +223,22 @@ body {font-family: Verdana, sans-serif;}
 
 .weekdays {
   margin: 0;
-  padding: 2px 10px; 
+  padding: 10px 0;
   background-color: #ddd;
 }
 
 .weekdays li {
-  list-style-type: none;
   display: inline-block;
- /* width: 50%; */
+  width: 13.6%;
+  color: #666;
   text-align: center;
-  margin-bottom: 5px;
-  font-size:12px;
-  color: #777;
 }
 
 .days {
   padding: 10px 0;
+
   margin: 0;
+
 }
 
 .days li {
@@ -274,31 +251,11 @@ body {font-family: Verdana, sans-serif;}
   color: #777;
 }
 
-.days li:hover {
-  background: #c8e2dd;
-}
-
 .days li .active {
   padding: 5px;
   background: #1abc9c;
   color: white !important
 }
-.transbox {
-opacity: 0.6;
-background-color: #777
-
-}
-.Convert-Buton:hover {
-  background: #1abc9c;
-
-}
-.Convert-Buton {
-  border-radius: 10px;
-  background-size: contain;
-  justify-content: center;
-}
- 
-
 
 /* Add media queries for smaller screens */
 @media screen and (max-width:720px) {
@@ -312,26 +269,4 @@ background-color: #777
 
 @media screen and (max-width: 290px) {
   .weekdays li, .days li {width: 12.2%;}
-}
-.button {
-    transition-duration:0.4s;
-    border: none;
-    color: mediumpurple;
-    padding: 60px 256px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 80px 40px;
-    cursor: pointer;
-    animation-name: fall;
-    animation-duration: 4s;
-}
-.button1 {background-color: mediumpurple;}
-.button:hover {
-    background-color: #463E3F;
-    color: mediumpurple;
-    animation-name: mymove;
-    animation-iteration-count: infinite;
-    
 }
