@@ -1,5 +1,7 @@
 # Vision Statement
 Through visual representation and thorough explanations, we aim to create a solution for scheduling events across celestial bodies.
+GitHub Pages Link https://danielcomputerscience.github.io/2nd-period-isp-cosmic-calendar/index.html
+
 
 ## Roles
 | Role            | Name            | GitHub                                            | Web Portfolio                                                                                                         |

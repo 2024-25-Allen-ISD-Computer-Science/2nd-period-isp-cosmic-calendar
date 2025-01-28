@@ -5,15 +5,17 @@
   <head>
     <meta http-equiv="pragma" content="no-cache">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Galatic Calender</title>
-    <link rel="icon" type="img/Logo.jpg" href="img/Logo.jpg">
+    <title>Galatic Calendar</title>
+    <link rel="icon" type="img/LUNAR CALENDAR 2.svg" href="img/LUNAR CALENDAR 2.svg">
+	<script src="home.js" defer></script>
+
   </head>
   <body>
     
 
     <div class="navbar">
       <a class="active" href="index.html">
-	<img src="./img/Logo.png" alt="Home" style="width: 40px; height: 20px;">
+	<img src="./img/img/LUNAR CALENDAR.svg" alt="Home" style="width: 40px; height: 20px;">
 	<a href="methodology/index.html">Methodology</a>
 	<a href="applications/index.html">Applications</a>
 	<a href="DM/index.html"></a>
@@ -23,7 +25,7 @@
     
     <br>
     <div class="box">	
-      <img src="img/Logo.png"> 
+      <img src="img/LUNAR CALENDAR 2.svg"> 
       <name> Galactic Calender</name>
       <a href="Daniel.html">Elijah Daniel Williams, Grayson Barnes, Lance Tse</a>
       <br>
@@ -38,8 +40,8 @@
 	  <li class="prev">&#10094;</li>
 	  <li class="next">&#10095;</li>
 	  <li>
-	    August<br>
-	    <span style="font-size:18px">2021</span>
+	    <span id="month"></span><br>
+	    <span id="year" style="font-size:18px"></span>
 	  </li>
 	</ul>
       </div>
@@ -64,7 +66,7 @@
 	<li>7</li>
 	<li>8</li>
 	<li>9</li>
-	<li><span class="active">10</span></li>
+	</li>10</li>
 	<li>11</li>
 	<li>12</li>
 	<li>13</li>
@@ -92,6 +94,10 @@
       
 
     </div>
+	  <br>
+	  <button class="button button1" onclick="alert('Switching Pages...')">Switch Pages</button>
+    <br>
+    <button class="button button1">Convert Button</button>>
     <br>
     <div class="box">
       <br>
@@ -102,6 +108,6 @@
   </body>
   <link rel="icon" type="image/x-icon" href="/img/Logo.png" />
   <link rel="stylesheet" href="sites.css" />
-
+  
 </html>
 
