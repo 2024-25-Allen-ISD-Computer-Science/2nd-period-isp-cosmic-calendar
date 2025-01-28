@@ -16,6 +16,16 @@ class Main {
      System.out.println("What year is it?");
      int want3 = myObj3.nextInt();
      System.out.println("The date is: " + want + " "+ want2+ " "+want3);
+        Scanner planet = new Scanner(System.in);
+     System.out.println("What celestial body do you want to convert?");
+     String body = planet.nextLine();
+     if ((want3 & 1)==0){
+         int want2i = want2+365;
+         System.out.println("The day is Sol " + want2i);
+     }
+     else{
+         System.out.println("The day is Sol " +want2);
+     }
   }
  
   else {
