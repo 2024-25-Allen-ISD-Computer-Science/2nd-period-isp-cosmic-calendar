@@ -4,12 +4,15 @@
 }
 
 .CBEbox {
-    color: blue;
-    margin-left: 100px;
+    h1 {color: blue;
+    margin-left: 850px;
+    font-size: 40px;
+   
+    }
   p  {
         font-family: verdana;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 15px;
         color: #6495ED;
         /*background-color: #ADD8F9;*/
     }
