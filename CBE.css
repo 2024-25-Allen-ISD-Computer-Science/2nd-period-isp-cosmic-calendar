@@ -5,11 +5,11 @@
 
 .CBEbox {
     color: blue;
-    margin-left: 20px;
+    margin-left: 100px;
   p  {
         font-family: verdana;
         font-weight: bold;
-        font-size: 10px;
+        font-size: 20px;
         color: #6495ED;
         /*background-color: #ADD8F9;*/
     }
