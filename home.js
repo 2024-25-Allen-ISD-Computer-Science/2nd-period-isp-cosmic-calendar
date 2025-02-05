@@ -51,17 +51,21 @@ document.querySelector('.box date').innerText = fullDate + time; // Update this 
 // Time class for showing and selecting time
 
 document.querySelector('.box .row time .dropdown span').innerText = time;
-/*
+var hoursContainer = document.getElementsByClassName('hours')[0];
+var disp = hours;
 for (var i = 0; i <= 12; i++) {
     var hoursElement = document.createElement('p');
-    var disp = hours + i;
-    hoursElement.innerText = disp;
-    if (disp === 12) {
+    disp += 1;
+    
+    if (disp == 13) {
         disp = 0;
+        
     }
-    dropdownContentContainer.appendChild(hoursElement);
+    hoursContainer.appendChild(hoursElement);
+    hoursElement.innerText = disp;
+    
 }
-*/
+
 
 // Generate the list of days for the current month
 var daysContainer = document.getElementsByClassName('days')[0];
