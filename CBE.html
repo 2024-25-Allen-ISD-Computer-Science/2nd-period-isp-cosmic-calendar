@@ -35,51 +35,26 @@
         }
     </style>
     <script>
-        // Function to handle form submission
-        function handleFormSubmit(event) {
+            // Function to handle form submission
+			function handleFormSubmit(event) {
             event.preventDefault(); // Prevent form from submitting normally
 
             // Get the values from the form inputs
-            const orbit = document.getElementById('Orbit');
-            const rotationSpeed = document.getElementById('RotationSpeed');
+            const orbit = document.getElementById('Orbit').value;
+            const rotationSpeed = document.getElementById('RotationSpeed').value;
 
-            // Check if the inputs are empty and highlight them
-            let formIsValid = true;
-
-            // Reset previous error styles
-            orbit.classList.remove('error');
-            rotationSpeed.classList.remove('error');
-
-            // Check if the orbit field is empty
-            if (!orbit.value) {
-                orbit.classList.add('error'); // Highlight the empty field
-                formIsValid = false;
-            }
-
-            // Check if the rotation speed field is empty
-            if (!rotationSpeed.value) {
-                rotationSpeed.classList.add('error'); // Highlight the empty field
-                formIsValid = false;
-            }
-
-            // If the form is valid, proceed to store the data and redirect
-            if (formIsValid) {
+            // Make sure the user entered values
+            if (orbit && rotationSpeed) {
                 // Store the values in localStorage
-                localStorage.setItem('orbit', orbit.value);
-                localStorage.setItem('rotationSpeed', rotationSpeed.value);
+                localStorage.setItem('orbit', orbit);
+                localStorage.setItem('rotationSpeed', rotationSpeed);
 
                 // Redirect to the results page (CBEsub.html)
                 window.location.href = 'CBEsub.html';
             } else {
-                // If the form is not valid, focus on the first empty field
-                if (!orbit.value) {
-                    orbit.focus();
-                } else if (!rotationSpeed.value) {
-                    rotationSpeed.focus();
-                }
+                alert('Please fill out both fields before submitting!');
             }
         }
-		window.location.href = 'CBEsub.html';
     </script>
 
       <div class="box">
