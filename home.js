@@ -48,6 +48,21 @@ var fullDate = month + " " + day + "th"; // Adjust the "th" as necessary
 var time = " " + hours + ":" + minutes;
 document.querySelector('.box date').innerText = fullDate + time; // Update this line as necessary
 
+// Time class for showing and selecting time
+
+document.querySelector('.box .row time .dropdown span').innerText = time;
+/*
+for (var i = 0; i <= 12; i++) {
+    var hoursElement = document.createElement('p');
+    var disp = hours + i;
+    hoursElement.innerText = disp;
+    if (disp === 12) {
+        disp = 0;
+    }
+    dropdownContentContainer.appendChild(hoursElement);
+}
+*/
+
 // Generate the list of days for the current month
 var daysContainer = document.getElementsByClassName('days')[0];
 var daysInMonth = new Date(year, currentDate.getMonth() + 1, 0).getDate(); // Get the number of days in the current month
