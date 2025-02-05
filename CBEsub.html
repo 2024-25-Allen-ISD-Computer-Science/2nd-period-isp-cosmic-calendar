@@ -67,8 +67,26 @@
 	  <br>
 	  <div class="box">
 	  <!-- <button class="button button1" onclick="alert('Switching Pages...')">Switch Pages</button> -->
-	  <h1>Your input</h1>
-	  <p>Orbit time: id="Orbit" </p>
+
+	  <script>
+        
+        window.onload = function() {
+            
+            var orbit = localStorage.getItem('orbit');
+            var rotationSpeed = localStorage.getItem('rotationSpeed');
+
+            
+            if (orbit !== null && rotationSpeed !== null) {
+                document.getElementById('result').innerHTML = `
+                    <p>Amount of days to orbit the sun: ${orbit} days</p>
+                    <p>Rotation speed (time for one full rotation): ${rotationSpeed} hours</p>
+                `;
+            } else {
+                document.getElementById('result').innerHTML = '<p>No data available.</p>';
+            }
+        };
+    </script>
+
     <br>
 	<br>
 	
@@ -90,6 +108,6 @@
   </body>
   <link rel="icon" type="image/x-icon" href="/img/Logo.png" />
   <link rel="stylesheet" href="sites.css" />
-  <link rel="external" href="CBE.js" />
+  <script src="CBE.js"></script>
   
 </html>

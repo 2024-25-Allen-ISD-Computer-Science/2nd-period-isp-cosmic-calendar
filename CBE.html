@@ -27,6 +27,25 @@
 	<a href="Daniel.html">Elijah Daniel Williams, Grayson Barnes, Lance Tse</a>
       </div>
       <br>
+
+	  <script>
+        
+        function handleFormSubmit(event) {
+            event.preventDefault(); 
+
+            
+            var orbit = document.getElementById('Orbit').value;
+            var rotationSpeed = document.getElementById('Rotation Speed').value;
+
+            
+            localStorage.setItem('orbit', orbit);
+            localStorage.setItem('rotationSpeed', rotationSpeed);
+
+            
+            window.location.href = 'CBEsub.html'; 
+        }
+    </script>
+
       <div class="box">
 	<br>
 	<div class="transbox">
