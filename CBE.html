@@ -35,25 +35,20 @@
         }
     </style>
     <script>
-            // Function to handle form submission
-			function handleFormSubmit(event) {
-            event.preventDefault(); // Prevent form from submitting normally
+            
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Prevents default form submission behavior
 
-            // Get the values from the form inputs
-            const orbit = document.getElementById('Orbit').value;
-            const rotationSpeed = document.getElementById('RotationSpeed').value;
+            // Get values from the form inputs
+            var orbit = document.getElementById('Orbit').value;
+            var rotationSpeed = document.getElementById('RotationSpeed').value;
 
-            // Make sure the user entered values
-            if (orbit && rotationSpeed) {
-                // Store the values in localStorage
-                localStorage.setItem('orbit', orbit);
-                localStorage.setItem('rotationSpeed', rotationSpeed);
+            // Store values in localStorage
+            localStorage.setItem('orbit', orbit);
+            localStorage.setItem('rotationSpeed', rotationSpeed);
 
-                // Redirect to the results page (CBEsub.html)
-                window.location.href = 'CBEsub.html';
-            } else {
-                alert('Please fill out both fields before submitting!');
-            }
+            // Redirect to CBEsub.html to display the result
+            window.location.href = 'CBEsub.html';
         }
     </script>
 
