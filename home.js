@@ -53,12 +53,12 @@ document.querySelector('.box date').innerText = fullDate + time; // Update this 
 document.querySelector('.box .row time .dropdown span').innerText = time;
 var hoursContainer = document.getElementsByClassName('hours')[0];
 var disp = hours;
-for (var i = 0; i <= 12; i++) {
+for (var i = 0; i <= 11; i++) {
     var hoursElement = document.createElement('p');
     disp += 1;
     
     if (disp == 13) {
-        disp = 0;
+        disp = 1;
         
     }
     hoursContainer.appendChild(hoursElement);
