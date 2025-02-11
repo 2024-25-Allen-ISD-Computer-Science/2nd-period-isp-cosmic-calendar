@@ -68,31 +68,23 @@
 	  <div class="box">
 	  <!-- <button class="button button1" onclick="alert('Switching Pages...')">Switch Pages</button> -->
 
-	  <script>
-        
-          
-		  window.onload = function() {
-            
-            const orbit = localStorage.getItem('orbit');
-            const rotationSpeed = localStorage.getItem('rotationSpeed');
 
-            
-            if (Orbit > 0) {
-              if (Rotation Speed > o) {
-                document.getElementById('result').innerHTML = `
-                    <p>Amount of days to orbit the sun: ${orbit} days</p>
-                    <p>Rotation speed (time for one full rotation): ${rotationSpeed} hours</p>
-                `}
-                else {
-                  
-                  document.getElementById('result').innerHTML = '<p>No rotation speed given please fill out the whole form.</p>';
 
-                }
-            } else {
-                document.getElementById('result').innerHTML = '<p>No data available. Please submit the form first.</p>';
-            }
-        };
-    </script>
+    <div class="result-box">
+      <h2>Results</h2>
+      <p><strong>Orbit:</strong> <span id="orbitValue"></span> days</p>
+      <p><strong>Rotation Speed:</strong> <span id="rotationSpeedValue"></span> days</p>
+  </div>
+
+  <script>
+      // Retrieve the stored values from localStorage
+      var orbit = localStorage.getItem('orbit');
+      var rotationSpeed = localStorage.getItem('rotationSpeed');
+
+      // Display the values in the page
+      document.getElementById('orbitValue').textContent = orbit;
+      document.getElementById('rotationSpeedValue').textContent = rotationSpeed;
+  </script>
 
 <h1>Planet Information Results</h1>
 
