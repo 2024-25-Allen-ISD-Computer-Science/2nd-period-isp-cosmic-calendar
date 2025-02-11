@@ -37,17 +37,17 @@
     <script>
             
         function handleFormSubmit(event) {
-            event.preventDefault(); // Prevents default form submission behavior
+            event.preventDefault(); 
 
-            // Get values from the form inputs
+            
             var orbit = document.getElementById('Orbit').value;
             var rotationSpeed = document.getElementById('RotationSpeed').value;
 
-            // Store values in localStorage
+            
             localStorage.setItem('orbit', orbit);
             localStorage.setItem('rotationSpeed', rotationSpeed);
 
-            // Redirect to CBEsub.html to display the result
+            
             window.location.href = 'CBEsub.html';
         }
     </script>
