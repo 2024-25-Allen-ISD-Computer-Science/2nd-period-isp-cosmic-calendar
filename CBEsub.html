@@ -70,27 +70,32 @@
 
 
 
-    <div class="result-box">
-      <h2>Results</h2>
-      <p><strong>Orbit:</strong> <span id="orbitValue"></span> days</p>
-      <p><strong>Rotation Speed:</strong> <span id="rotationSpeedValue"></span> days</p>
-  </div>
+    <h2>Planet Information</h2>
 
-  <script>
-      // Retrieve the stored values from localStorage
-      var orbit = localStorage.getItem('orbit');
-      var rotationSpeed = localStorage.getItem('rotationSpeed');
+    <p><strong>Orbit:</strong> <span id="orbitValue">Loading...</span> days</p>
+    <p><strong>Rotation Speed:</strong> <span id="rotationSpeedValue">Loading...</span> days</p>
 
-      // Display the values in the page
-      document.getElementById('orbitValue').textContent = orbit;
-      document.getElementById('rotationSpeedValue').textContent = rotationSpeed;
-  </script>
+    <script>
+        // Function to retrieve query parameters from the URL
+        function getQueryParameter(param) {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
 
-<h1>Planet Information Results</h1>
+        // Get the values from the URL query parameters
+        var orbit = getQueryParameter('orbit');
+        var rotationSpeed = getQueryParameter('rotationSpeed');
 
-    <div id="result">
-        <!-- The result will be displayed here -->
-    </div> 
+        // Display the values if they exist, otherwise show a default message
+        if (orbit && rotationSpeed) {
+            document.getElementById('orbitValue').textContent = orbit;
+            document.getElementById('rotationSpeedValue').textContent = rotationSpeed;
+        } else {
+            // Handle the case where data isn't available
+            document.getElementById('orbitValue').textContent = "Not available";
+            document.getElementById('rotationSpeedValue').textContent = "Not available";
+        }
+    </script>
 
     <br>
 	<br>

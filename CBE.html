@@ -35,22 +35,21 @@
         }
     </style>
     <script>
-            
-        function handleFormSubmit(event) {
-            event.preventDefault(); 
+      function handleFormSubmit(event) {
+          event.preventDefault();  // Prevent the default form submission
 
-            
-            var orbit = document.getElementById('Orbit').value;
-            var rotationSpeed = document.getElementById('RotationSpeed').value;
+          // Get the values from the form fields
+          var orbit = document.getElementById('Orbit').value;
+          var rotationSpeed = document.getElementById('RotationSpeed').value;
 
-            
-            localStorage.setItem('orbit', orbit);
-            localStorage.setItem('rotationSpeed', rotationSpeed);
+          // Create a query string with the data
+          var queryString = `orbit=${encodeURIComponent(orbit)}&rotationSpeed=${encodeURIComponent(rotationSpeed)}`;
 
-            
-            window.location.href = 'CBEsub.html';
-        }
-    </script>
+          // Redirect to CBEsub.html with the data as query parameters
+          window.location.href = `CBEsub.html?${queryString}`;
+      }
+  </script>
+   <h2>Enter Planet Information</h2>
 
       <div class="box">
 	<br>
