@@ -43,9 +43,10 @@
           // Get the values from the form fields
           var orbit = document.getElementById('Orbit').value;
           var rotationSpeed = document.getElementById('RotationSpeed').value;
+          var rotationUnit = document.getElementById('RotationUnit').value; // Get the selected unit
   
           // Create a query string with the data
-          var queryString = `orbit=${encodeURIComponent(orbit)}&rotationSpeed=${encodeURIComponent(rotationSpeed)}`;
+          var queryString = `orbit=${encodeURIComponent(orbit)}&rotationSpeed=${encodeURIComponent(rotationSpeed)}&rotationUnit=${encodeURIComponent(rotationUnit)}`;
   
           // Redirect to CBEsub.html with the data as query parameters
           window.location.href = `CBEsub.html?${queryString}`;
