@@ -75,27 +75,32 @@
     <p><strong>Orbit:</strong> <span id="orbitValue">Loading...</span> days</p>
     <p><strong>Rotation Speed:</strong> <span id="rotationSpeedValue">Loading...</span> days</p>
 
-    <script>
-        // Function to retrieve query parameters from the URL
-        function getQueryParameter(param) {
-            var urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
+    <h2>Planet Information</h2>
 
-        // Get the values from the URL query parameters
-        var orbit = getQueryParameter('orbit');
-        var rotationSpeed = getQueryParameter('rotationSpeed');
+<p><strong>Orbit:</strong> <span id="orbitValue">Loading...</span> days</p>
+<p><strong>Rotation Speed:</strong> <span id="rotationSpeedValue">Loading...</span> days</p>
 
-        // Display the values if they exist, otherwise show a default message
-        if (orbit && rotationSpeed) {
-            document.getElementById('orbitValue').textContent = orbit;
-            document.getElementById('rotationSpeedValue').textContent = rotationSpeed;
-        } else {
-            // Handle the case where data isn't available
-            document.getElementById('orbitValue').textContent = "Not available";
-            document.getElementById('rotationSpeedValue').textContent = "Not available";
-        }
-    </script>
+<script>
+    // Function to retrieve query parameters from the URL
+    function getQueryParameter(param) {
+        var urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Get the values from the URL query parameters
+    var orbit = getQueryParameter('orbit');
+    var rotationSpeed = getQueryParameter('rotationSpeed');
+
+    // Display the values if they exist, otherwise show a default message
+    if (orbit && rotationSpeed) {
+        document.getElementById('orbitValue').textContent = orbit;
+        document.getElementById('rotationSpeedValue').textContent = rotationSpeed;
+    } else {
+        // Handle the case where data isn't available
+        document.getElementById('orbitValue').textContent = "Not available";
+        document.getElementById('rotationSpeedValue').textContent = "Not available";
+    }
+</script>
 
     <br>
 	<br>
