@@ -45,6 +45,9 @@
           // Create a query string with the data
           var queryString = `orbit=${encodeURIComponent(orbit)}&rotationSpeed=${encodeURIComponent(rotationSpeed)}`;
 
+          var queryString = `orbit=${encodeURIComponent(orbit)}&rotationSpeed=${encodeURIComponent(rotationSpeed)}`;
+
+
           // Redirect to CBEsub.html with the data as query parameters
           window.location.href = `CBEsub.html?${queryString}`;
       }
