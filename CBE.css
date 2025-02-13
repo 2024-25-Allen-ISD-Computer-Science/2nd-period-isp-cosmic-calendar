@@ -1,10 +1,21 @@
 .transbox {
     opacity: 0.6;
-    background-color: #b9b9b9
+    background-color: #c9c9c9
 }
 
 .CBEbox {
-    color: blue;
-    margin-left: 20px;
+    h1 {color: blue;
+    margin-left: 850px;
+    font-size: 60px;
+   
+    }
+  p  {
+        font-family: verdana;
+        font-weight: bold;
+        font-size: 30px;
+        color: #6495ED;
+        /*background-color: #ADD8F9;*/
+    }
 
 }
+

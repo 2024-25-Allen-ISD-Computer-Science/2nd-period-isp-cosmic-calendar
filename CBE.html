@@ -27,24 +27,67 @@
 	<a href="Daniel.html">Elijah Daniel Williams, Grayson Barnes, Lance Tse</a>
       </div>
       <br>
-      <div class="box">
-	<br>
-	<div class="transbox">
-		<div class="Editer">
-	  <form action="CBEsub.html">
-	   <lable for="Orbit">Amount of days it takes for it to go around the sun</lable>
-	   <input type="number" id="Orbit" name="Orbit"><br><br>
-	   <lable for="Rotation Speed">How long does it take to rotate on it's axis</lable>
-	   <input type="number" id="Rotation Speed" name="Rotation Speed"><br><br>
-	   <input type="submit" value="Calculate">
-	  </form>
-	  </div>
-		</div>
-		</div>
+
+	  <style>
+        /* Style for highlighting empty fields */
+        .error {
+            border: 2px solid red;
+        }
+    </style>
+    
+
+    <script>
+      function handleFormSubmit(event) {
+          event.preventDefault();  // Prevent the default form submission
+  
+          // Get the values from the form fields
+          var orbit = document.getElementById('Orbit').value;
+          var rotationSpeed = document.getElementById('RotationSpeed').value;
+          var rotationUnit = document.getElementById('RotationUnit').value; // Get the selected unit
+  
+          // Create a query string with the data
+          var queryString = `orbit=${encodeURIComponent(orbit)}&rotationSpeed=${encodeURIComponent(rotationSpeed)}&rotationUnit=${encodeURIComponent(rotationUnit)}`;
+  
+          // Redirect to CBEsub.html with the data as query parameters
+          window.location.href = `CBEsub.html?${queryString}`;
+      }
+  </script>
+  
+  <h2>Enter Planet Information</h2>
+  
+  <div class="box">
+    <br>
+    <div class="transbox">
+      <div class="Editer">
+        <form onsubmit="handleFormSubmit(event)">
+          <label for="Orbit">Amount of days it takes for it to go around the sun</label>
+          <input type="number" id="Orbit" name="Orbit"><br><br>
+  
+          <label for="RotationSpeed">How long does it take to rotate on its axis</label>
+          <input type="number" id="RotationSpeed" name="RotationSpeed"><br><br>
+  
+          <label for="RotationUnit">Select unit for rotation speed</label>
+          <select id="RotationUnit" name="RotationUnit">
+            <option value="days">Days</option>
+            <option value="hours">Hours</option>
+          </select><br><br>
+  
+          <input type="submit" value="Calculate">
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
 		<br>
+		<div class="box">
 		<div class ="CBEbox">
-		<h1>Things to note on the CBE</h1>
-	</div>
+			<h1>What is the celestial body Editor</h1>
+			<p>The celestial body editor is a tool used to create a calendar connected to earth’s. We already have a selection of celestial bodies you can pick, but space is infinite. Since we can’t have every planet, asteroid, or anything floating in space.
+			 We made the celestial body editor to help you. All you do is put the data that the questions are asking. After pressing Calculate it will take you to a new page exactly like our main page but with the data you gave us.</p>
+		</div>
+
 	
 	
 	

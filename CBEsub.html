@@ -23,7 +23,7 @@
     </div>
     
     <br>
-	<div class="clearBox">
+	<div class="box">
       <img src="img/LUNAR CALENDAR 2.svg"> 
       <name> Galactic Calendar</name>
       <a href="Daniel.html">Elijah Daniel Williams, Grayson Barnes, Lance Tse</a>
@@ -67,7 +67,38 @@
 	  <br>
 	  <div class="box">
 	  <!-- <button class="button button1" onclick="alert('Switching Pages...')">Switch Pages</button> -->
-	  
+
+
+    <h2>Planet Information</h2>
+
+    <p><strong>Orbit:</strong> <span id="orbitValue">Loading...</span> days</p>
+    <p><strong>Rotation Speed:</strong> <span id="rotationSpeedValue">Loading...</span> <span id="rotationUnit">Loading...</span></p>
+    
+    <script>
+        // Function to retrieve query parameters from the URL
+        function getQueryParameter(param) {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+    
+        // Get the values from the URL query parameters
+        var orbit = getQueryParameter('orbit');
+        var rotationSpeed = getQueryParameter('rotationSpeed');
+        var rotationUnit = getQueryParameter('rotationUnit');
+    
+        // Display the values if they exist, otherwise show a default message
+        if (orbit && rotationSpeed && rotationUnit) {
+            document.getElementById('orbitValue').textContent = orbit;
+            document.getElementById('rotationSpeedValue').textContent = rotationSpeed;
+            document.getElementById('rotationUnit').textContent = rotationUnit;
+        } else {
+            // Handle the case where data isn't available
+            document.getElementById('orbitValue').textContent = "Not available";
+            document.getElementById('rotationSpeedValue').textContent = "Not available";
+            document.getElementById('rotationUnit').textContent = "Not available";
+        }
+    </script>
+
     <br>
 	<br>
 	
@@ -89,6 +120,6 @@
   </body>
   <link rel="icon" type="image/x-icon" href="/img/Logo.png" />
   <link rel="stylesheet" href="sites.css" />
-  
+  <script src="CBE.js"></script>
   
 </html>
