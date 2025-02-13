@@ -36,12 +36,15 @@
 
       <div class="month">      
 			<ul>
+				<div class="row">
 	  			<li class="prev">&#10094;</li>
-	  			<li class="next">&#10095;</li>
+	  			
 	  			<li>
 	     			<span id="month"></span><br> 
 	    			<span id="year" style="font-size:18px"></span>
+					<li class="next">&#10095;</li>
 	  			</li>
+				</div>
 			</ul>
       </div>
 	  <div class="row">
@@ -63,7 +66,7 @@
 	  </div>
 	  
 	  <br>
-	  <time>
+	  <div class="time">
 	  <div class="dropdown">
 		<span>Time Selector</span>
 		<div class="dropdown-content">
@@ -81,10 +84,25 @@
 			
 		
 	  </div>
-	  </time>
+	</div>
 	  <br>
-	  <name>Earth</name>
-
+	  
+	  <bodySelect>
+		<name>Earth</name>
+		<img src="img/Earth.png">
+		<div class="dropdown">
+			<span>UTC - 6</span>
+			<div class="dropdown-content">
+				UTC
+				UTC-2
+				UTC-4
+				UTC-6
+				</div>
+				
+			
+		  </div>
+		</div>
+		</bodySelect>
 	</div>
 </div>
 	  
@@ -98,14 +116,17 @@
     <br>
     <div class="row">
 	<button class="png-button", id="Moon"> <img src="img/moon.png" alt="Button Image"> </button>
-	
-	<button class="png-button", id="Neptune"> <img src="img/Neptune.png" alt="Button Image"> </button>
-	<button class="png-button", id="Mars"> <img src="img/Mars.png" alt="Button Image"> </button>
-	<button class="png-button", id="Uranus"> <img src="img/Uranus.PNG" alt="Button Image"> </button>
-	<button class="png-button", id="Venus"> <img src="img/Venus.png" alt="Button Image"> </button>
 	<button class="png-button", id="Mercury"> <img src="img/Mercury.png" alt="Button Image"> </button>
+	<button class="png-button", id="Venus"> <img src="img/Venus.png" alt="Button Image"> </button>
+	<button class="png-button", id="Mars"> <img src="img/Mars.png" alt="Button Image"> </button>
 	<button class="png-button", id="Jupiter"> <img src="img/Jupiter.png" alt="Button Image"> </button>
 	<button class="png-button", id="Saturn"> <img src="img/Saturn.png" alt="Button Image"> </button>
+	<button class="png-button", id="Neptune"> <img src="img/Neptune.png" alt="Button Image"> </button>
+	<button class="png-button", id="Uranus"> <img src="img/Uranus.PNG" alt="Button Image"> </button>
+	
+	
+	
+	
 	</div>
 	<br>
 	

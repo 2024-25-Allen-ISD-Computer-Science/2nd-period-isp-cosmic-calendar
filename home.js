@@ -50,7 +50,7 @@ document.querySelector('.box date').innerText = fullDate + time; // Update this 
 
 // Time class for showing and selecting time
 
-document.querySelector('.box .row time .dropdown span').innerText = time;
+document.querySelector('.box .row .time .dropdown span').innerText = time;
 var hoursContainer = document.getElementsByClassName('hours')[0];
 var disp = hours;
 for (var i = 0; i <= 11; i++) {
