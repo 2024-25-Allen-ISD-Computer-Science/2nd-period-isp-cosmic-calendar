@@ -5,9 +5,8 @@
 
 .CBEbox {
     h1 {color: blue;
-    margin-left: 850px;
     font-size: 60px;
-   
+   align-items: center;
     }
   p  {
         font-family: verdana;
