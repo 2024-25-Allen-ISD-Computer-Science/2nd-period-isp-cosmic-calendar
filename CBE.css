@@ -6,7 +6,7 @@
 .CBEbox {
     h1 {color: blue;
     font-size: 60px;
-   align-items: center;
+   text-align: center;
     }
   p  {
         font-family: verdana;
@@ -15,6 +15,11 @@
         color: #6495ED;
         /*background-color: #ADD8F9;*/
     }
+    
 
+}
+
+h2 {
+    text-align: center;
 }
 
