@@ -43,44 +43,46 @@
 
 
         <script>
+          
           const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-          let currentMonth = new Date().getMonth();  // Current month (0-11)
-          let currentYear = new Date().getFullYear();  // Current year
-  
-          
-          function updateMonthDisplay() {
-              const monthDisplay = document.getElementById("month-display");
-              monthDisplay.textContent = `${months[currentMonth]} ${currentYear}`;
-          }
-  
-          
-          function goBack() {
-              if (currentMonth === 0) {  // January
-                  currentMonth = 11;  // December
-                  currentYear--;
-              } else {
-                  currentMonth--;
-              }
-              updateMonthDisplay();
-          }
-  
-          
-          function goForward() {
-              if (currentMonth === 11) {  // December
-                  currentMonth = 0;  // January
-                  currentYear++;
-              } else {
-                  currentMonth++;
-              }
-              updateMonthDisplay();
-          }
-  
-          
-          document.getElementById("back-arrow").addEventListener("click", goBack);
-          document.getElementById("forward-arrow").addEventListener("click", goForward);
-  
-          
-          updateMonthDisplay();
+        let currentMonth = new Date().getMonth();  // Current month (0-11)
+        let currentYear = new Date().getFullYear();  // Current year
+
+        
+        function updateMonthDisplay() {
+            const monthDisplay = document.getElementById("month-display");
+            monthDisplay.textContent = `${months[currentMonth]} ${currentYear}`;
+        }
+
+        
+        function goBack() {
+            if (currentMonth === 0) {  // January
+                currentMonth = 11;  // December
+                currentYear--;
+            } else {
+                currentMonth--;
+            }
+            updateMonthDisplay();
+        }
+
+        
+        function goForward() {
+            if (currentMonth === 11) {  // December
+                currentMonth = 0;  // January
+                currentYear++;
+            } else {
+                currentMonth++;
+            }
+            updateMonthDisplay();
+        }
+
+        
+        document.getElementById("back-arrow").addEventListener("click", goBack);
+        document.getElementById("forward-arrow").addEventListener("click", goForward);
+
+        
+        updateMonthDisplay();
+
       </script>
 
 
