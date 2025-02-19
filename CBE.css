@@ -28,7 +28,7 @@ h2 {
 
 .container {
     text-align: center;
-    color: blue;
+    
 }
 
 .buttons {
@@ -50,4 +50,8 @@ h2 {
 
 .arrow:hover {
     color: #FFD700; /* Change color when hovering over the arrow */
+}
+
+.script {
+    
 }
