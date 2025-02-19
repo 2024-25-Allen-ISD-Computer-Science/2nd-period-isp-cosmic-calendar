@@ -24,24 +24,38 @@ h2 {
 }
 
 
-    .container {
-        text-align: center;
-        margin-top: 50px;
-        color: blue;
-    }
-    .buttons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        color: blue;
-    }
-    .month {
-        font-size: 30px;
-        color: blue;
-    }
-    .arrow {
-        cursor: pointer;
-        font-size: 30px;
-        color: blue;
-    }
+body {
+    
+    font-family: Arial, sans-serif;
+    color: #007BFF; /* Blue text color */
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.month {
+    font-size: 30px;
+    margin: 0 20px;
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 30px;
+    user-select: none;
+}
+
+.arrow:hover {
+    color: #FFD700; /* Change color when hovering over the arrow */
+}
