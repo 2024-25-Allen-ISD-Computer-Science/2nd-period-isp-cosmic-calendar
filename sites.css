@@ -93,11 +93,19 @@ top {
 /* dropdown menu */
 .dropdown {
   position: relative;
+  border: 2px solid black;
   display: inline-block;
   color:#6495ED;
-  background-color:#463E3F;
   font-size: 30px;
   align-items: flex-start;
+}
+.p-dropdown {
+  position: relative;
+  display: inline-block;
+  color:#6495ED;
+  font-size: 30px;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .dropdown-content {
@@ -328,11 +336,11 @@ body {font-family: Verdana, sans-serif;}
   color: white !important
 }
 
-.Convert-Buton:hover {
+.convert-Buton:hover {
   background: #1abc9c;
 
 }
-.Convert-Buton {
+.convert-Buton {
   border-radius: 10px;
   background-size: contain;
   justify-content: center;

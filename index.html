@@ -88,7 +88,23 @@
 	  <br>
 	  
 	  <bodySelect>
-		<name>Earth</name>
+		<div class="dropdown">
+			<span>Earth</span>
+			<div class="dropdown-content">
+				Mercury
+				Venus
+				Earth
+				Mars
+				Jupiter
+				Saturn
+				Uranus
+				Neptune
+				Pluto
+				Europa
+				</div>
+				
+			
+		  </div>
 		<img src="img/Earth.png">
 		<div class="dropdown">
 			<span>UTC - 6</span>
@@ -103,6 +119,7 @@
 		  </div>
 		</div>
 		</bodySelect>
+		<br>
 	</div>
 </div>
 	  
@@ -135,17 +152,19 @@
     <div class="box">
       <br>
 	  <div class="Convert-Buton">
-      <button class="Convert-Buton" onclick="alert('Converting Time...')">Convert Time</button>
+      <button class="convert-Buton" onclick="alert('Converting Time...')">Convert Time</button>
 	  </div>
 	  <date></date>
+	  <test></test>
 		
       <br>
 	  
     </div>
 	<br>
 	<div id="time"></div>
-	<script src="home.js" defer></script>
+	
   </body>
+  <script src="home.js" defer></script>
   <link rel="icon" type="image/x-icon" href="/img/Logo.png" />
   <link rel="stylesheet" href="sites.css" />
   

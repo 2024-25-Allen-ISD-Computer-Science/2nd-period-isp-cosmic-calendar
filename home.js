@@ -1,26 +1,5 @@
-/*// Get the current date
-var currentDate = new Date();
-// Getting date indexes
-var month = currentDate.toLocaleString('default', { month: 'long' });
-var year = currentDate.getFullYear();
-var day = currentDate.getDate();
-
-// Format the date as desired
-
-
-// Display the date on the webpage
-document.getElementById('month').innerText = month; 
-document.getElementById('year').innerText = year;
-// highlight the day
-var days = document.getElementsByClassName('days')[0].getElementsByTagName('li');
-for (var i = 0; i < days.length; i++) {
-    if (days[i].innerText == day) {
-        days[i].classList.add('active');
-    
-    }
-}
-*/
 // Get the current date
+var cBody = "Earth"
 var currentDate = new Date();
 var selectedHeight = '250px';
 document.documentElement.style.setProperty('--selected-height', selectedHeight);
@@ -46,7 +25,17 @@ document.getElementById('time').innerText = time;
 // Display the full date in the specific box
 var fullDate = month + " " + day + "th"; // Adjust the "th" as necessary
 var time = " " + hours + ":" + minutes;
-document.querySelector('.box date').innerText = fullDate + time; // Update this line as necessary
+var cDate = {month:month, day:day + "th", hours:hours, minutes:minutes};
+if (cBody ==  "Earth") {
+    
+    document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes;
+} 
+if (cBody ==  "Mars") {
+    document.querySelector('.box date').innerText = " ";
+
+}
+document.querySelector('.box test').innerText = cBody;
+
 
 // Time class for showing and selecting time
 
@@ -90,6 +79,10 @@ buttons.forEach(button => {
 document.querySelectorAll('.png-button').forEach(button => { 
     button.addEventListener('click', function() { 
         const selectedHeight = 200; // Desired final height in pixels 
+        cBody = button.id;
+        console.log(cBody);  // This will log the ID of the clicked button
+        
+        document.querySelector('.box test').innerText = cBody;
         let currentHeight = parseInt(button.style.height) || 100; 
         // reset other buttons
         document.querySelectorAll('.png-button').forEach(otherButton => { 
