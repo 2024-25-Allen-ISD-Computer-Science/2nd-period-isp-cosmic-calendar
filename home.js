@@ -1,5 +1,5 @@
 // Get the current date
-var cBody = "Earth"
+var cBody = "Earth";
 var currentDate = new Date();
 var selectedHeight = '250px';
 document.documentElement.style.setProperty('--selected-height', selectedHeight);
@@ -9,9 +9,12 @@ var month = currentDate.toLocaleString('default', { month: 'long' });
 var year = currentDate.getFullYear();
 var day = currentDate.getDate();
 var hours = currentDate.getHours(); 
-if (hours >= 12) hours -= 12;
+if (hours > 12) hours -= 12;
 var minutes = currentDate.getMinutes(); 
 var seconds = currentDate.getSeconds();
+let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",]
+var monthNum = months.indexOf(month)
+var cYear = year;
 
 // Format the time to always have two digits 
 if (minutes < 10) minutes = '0' + minutes; 
@@ -25,14 +28,14 @@ document.getElementById('time').innerText = time;
 // Display the full date in the specific box
 var fullDate = month + " " + day + "th"; // Adjust the "th" as necessary
 var time = " " + hours + ":" + minutes;
-var cDate = {month:month, day:day + "th", hours:hours, minutes:minutes};
+var cDate = {month:month, day:day + "th", hours:hours, minutes:minutes, end:4, year:year};
 if (cBody ==  "Earth") {
     
-    document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes;
+    document.querySelector('.box date').innerText = cDate.hours + ":" + cDate.minutes + " " + cDate.month + " " + cDate.day + " " + cDate.year;
 } 
-if (cBody ==  "Mars") {
-    document.querySelector('.box date').innerText = " ";
-
+if (cBody ==  "5") {
+    cDate.end = 5;
+    document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
 }
 document.querySelector('.box test').innerText = cBody;
 
@@ -76,10 +79,80 @@ buttons.forEach(button => {
         alert(`You clicked ${button.id}`); 
 }); 
 }); */
+document.querySelector('.convert-Buton').addEventListener('click', function() {
+    fullDate = month + " " + day + "th";
+    document.querySelector('.box date').innerText = cDate.minutes + cDate.end + " " + cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cYear;
+});
+
+
 document.querySelectorAll('.png-button').forEach(button => { 
     button.addEventListener('click', function() { 
         const selectedHeight = 200; // Desired final height in pixels 
-        cBody = button.id;
+        // Calcs for each celestial body
+        if (button.id == "Mars") {
+            cBody = "Mars";
+            cDate.end = 4;
+            cDate.month = (monthNum + 1) * 2;
+            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            
+        }
+        if (button.id == "Venus") {
+            cBody = "Venus";
+            cDate.end = 2;
+            day = day - 5;
+            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            
+        }
+        if (button.id == "Mercury") {
+            cBody = "Mercury";
+            cDate.end = 1;
+            cYear = year + 200;
+            day = day - 5;
+            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            
+        }
+        if (button.id == "Moon") {
+            cBody = "Moon";
+            cDate.end = 3;
+            day = day - 5;
+            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            
+        }
+        if (button.id == "Venus") {
+            cBody = "Venus";
+            cDate.end = 2;
+            day = day - 5;
+            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            
+        }
+        if (button.id == "Jupiter") {
+            cBody = "Jupiter";
+            cDate.end = 5;
+            day = day - 5;
+            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            
+        }
+        if (button.id == "Saturn") {
+            cBody = "Saturn";
+            cDate.end = 6;
+            day = day - 5;
+            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            
+        }
+        if (button.id == "Uranus") {
+            cBody = "Uranus";
+            cDate.end = 8;
+            day = day - 5;
+            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            
+        }
+        if (button.id == "Neptune") {
+            cBody = "Neptune";
+            cDate.end = 7;
+            day = day - 5;
+            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            
+        }
         console.log(cBody);  // This will log the ID of the clicked button
         
         document.querySelector('.box test').innerText = cBody;
