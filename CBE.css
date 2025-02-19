@@ -23,24 +23,25 @@ h2 {
     text-align: center;
 }
 
-.buttons {
 
     .container {
         text-align: center;
         margin-top: 50px;
+        color: blue;
     }
     .buttons {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 20px;
+        color: blue;
     }
     .month {
         font-size: 30px;
+        color: blue;
     }
     .arrow {
         cursor: pointer;
         font-size: 30px;
+        color: blue;
     }
-
-}
