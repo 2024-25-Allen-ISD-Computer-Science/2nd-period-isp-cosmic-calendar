@@ -31,19 +31,80 @@
     </div>
     <br>
     <div class="box">
-      <br>
-      <h1>Celestial Body Editor</h1>
 
-      <div class="month">      
-			<ul>
-	  			<li class="prev">&#10094;</li>
-	  			<li class="next">&#10095;</li>
-	  			<li>
-	     			<span id="month"></span><br> 
-	    			<span id="year" style="font-size:18px"></span>
-	  			</li>
+      <style>
+        body {
+            
+            font-family: Arial, sans-serif;
+            color: #007BFF; /* Blue text color */
+            margin: 0;
+            height: 100vh;
+           
+        }
+</style>
+
+    
+ 
+      <div class="container">
+        <div class="buttons">
+            <span class="arrow" id="back-arrow">&lt;</span>
+            <div class="month" id="month-display"></div>
+            <span class="arrow" id="forward-arrow">&gt;</span>
+        </div>
+        </div>
+
+
+        <script>
+          // Array of months
+          const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  
+          // Initialize current month and year
+          let currentMonth = new Date().getMonth();  // Current month (0-11)
+          let currentYear = new Date().getFullYear();  // Current year
+  
+          function updateMonthDisplay() {
+              const monthDisplay = document.getElementById("month-display");
+              monthDisplay.textContent = `${months[currentMonth]} ${currentYear}`;
+          }
+  
+          
+          function goBack() {
+              if (currentMonth === 0) {  // If it's January, go to December of the previous year
+                  currentMonth = 11;  // December
+                  currentYear--;
+              } else {
+                  currentMonth--;
+              }
+              updateMonthDisplay();
+          }
+  
+          function goForward() {
+              if (currentMonth === 11) {  // If it's December, go to January of the next year
+                  currentMonth = 0;  // January
+                  currentYear++;
+              } else {
+                  currentMonth++;
+              }
+              updateMonthDisplay();
+          }
+  
+          
+          document.getElementById("back-arrow").addEventListener("click", goBack);
+          document.getElementById("forward-arrow").addEventListener("click", goForward);
+  
+          
+          updateMonthDisplay();
+      </script>
+
+
+
+
+
+
+
+
 			</ul>
-      </div>
+      
 
       <ul class="weekdays">
       </ul>
@@ -75,24 +136,24 @@
     <p><strong>Rotation Speed:</strong> <span id="rotationSpeedValue">Loading...</span> <span id="rotationUnit">Loading...</span></p>
     
     <script>
-        // Function to retrieve query parameters from the URL
+        
         function getQueryParameter(param) {
             var urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
         }
     
-        // Get the values from the URL query parameters
+        
         var orbit = getQueryParameter('orbit');
         var rotationSpeed = getQueryParameter('rotationSpeed');
         var rotationUnit = getQueryParameter('rotationUnit');
     
-        // Display the values if they exist, otherwise show a default message
+       
         if (orbit && rotationSpeed && rotationUnit) {
             document.getElementById('orbitValue').textContent = orbit;
             document.getElementById('rotationSpeedValue').textContent = rotationSpeed;
             document.getElementById('rotationUnit').textContent = rotationUnit;
         } else {
-            // Handle the case where data isn't available
+            
             document.getElementById('orbitValue').textContent = "Not available";
             document.getElementById('rotationSpeedValue').textContent = "Not available";
             document.getElementById('rotationUnit').textContent = "Not available";

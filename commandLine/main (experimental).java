@@ -25,22 +25,33 @@ class Main {
       int want3 = myObj3.nextInt();
 
       System.out.println("The date is: " + monthName + " " + want2 + " " + want3);
+      
+      
 
       
       Scanner planet = new Scanner(System.in);
       System.out.println("What celestial body do you want to convert?");
       String body = planet.nextLine();
 
-      
+      if (body.contains("Mars"))
+      {
       if ((want3 & 1) == 0) {
         int want2i = want2 + 365;
         System.out.println("The day is Sol " + want2i);
-      } else {
+      } if ((want3&1)!= 0) {
         System.out.println("The day is Sol " + want2);
       }
+      }
+      if (body.contains("Mercury"))
+      {
+          double want2m = want2 + (30*monthNumber);
+          double want2mi = want2m*(1/58.6);
+          System.out.println("The day is Solar Day " + want2mi);
+      }
 
-    } else {
+    else {
       System.out.println("Invalid month number. Please enter a number between 1 and 12.");
+    }
     }
   }
 }

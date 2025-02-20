@@ -93,14 +93,14 @@ document.querySelectorAll('.png-button').forEach(button => {
             cBody = "Mars";
             cDate.end = 4;
             cDate.month = (monthNum + 1) * 2;
-            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
             
         }
         if (button.id == "Venus") {
             cBody = "Venus";
             cDate.end = 2;
             day = day - 5;
-            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
             
         }
         if (button.id == "Mercury") {
@@ -108,49 +108,49 @@ document.querySelectorAll('.png-button').forEach(button => {
             cDate.end = 1;
             cYear = year + 200;
             day = day - 5;
-            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
             
         }
         if (button.id == "Moon") {
             cBody = "Moon";
             cDate.end = 3;
             day = day - 5;
-            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
             
         }
         if (button.id == "Venus") {
             cBody = "Venus";
             cDate.end = 2;
             day = day - 5;
-            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
             
         }
         if (button.id == "Jupiter") {
             cBody = "Jupiter";
             cDate.end = 5;
             day = day - 5;
-            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
             
         }
         if (button.id == "Saturn") {
             cBody = "Saturn";
             cDate.end = 6;
             day = day - 5;
-            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
             
         }
         if (button.id == "Uranus") {
             cBody = "Uranus";
             cDate.end = 8;
             day = day - 5;
-            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
             
         }
         if (button.id == "Neptune") {
             cBody = "Neptune";
             cDate.end = 7;
             day = day - 5;
-            document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
+            //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
             
         }
         console.log(cBody);  // This will log the ID of the clicked button
