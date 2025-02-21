@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System in 2D</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000;
+            color: white;
+            flex-direction: column;
+        }
+        canvas {
+            border: 1px solid white;
+        }
+        #coordinates {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 16px;
+        }
+        #dateInput {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="orbitCanvas" width="800" height="800"></canvas>
+    <div id="coordinates"></div>
+    <div id="dateInput">
+        <label for="date">Enter a Date (YYYY-MM-DD): </label>
+        <input type="date" id="date">
+        <button onclick="startOrbit()">Set Date</button>
+    </div>
+    <script>
+        // Set up canvas and 2D context
+        const canvas = document.getElementById('orbitCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Sun coordinates (center of the canvas)
+        const sunX = canvas.width / 2;
+        const sunY = canvas.height / 2;
+
+        // Orbital periods of planets in Earth years
+        const orbitalPeriods = {
+            Mercury: 0.24,
+            Venus: 0.615,
+            Earth: 1,
+            Mars: 1.88,
+            Jupiter: 11.86,
+            Saturn: 29.46
+        };
+
+        // Orbital radii (arbitrary units)
+        const planets = [
+            { name: 'Mercury', radius: 50 },
+            { name: 'Venus', radius: 80 },
+            { name: 'Earth', radius: 120 },
+            { name: 'Mars', radius: 160 },
+            { name: 'Jupiter', radius: 220 },
+            { name: 'Saturn', radius: 280 }
+        ];
+
+        // Reference date for the starting point (e.g., January 1, 2000)
+        const referenceDate = new Date('January 1, 2000 00:00:00 UTC');
+
+        // Function to calculate days since reference date
+        function getDaysBetweenDates(startDate, endDate) {
+            const timeDiff = endDate - startDate; // Time in milliseconds
+            return timeDiff / (1000 * 60 * 60 * 24); // Convert to days
+        }
+
+        // Function to handle user input and start the orbit
+        function startOrbit() {
+            const userDate = document.getElementById('date').value;
+            const selectedDate = new Date(userDate + "T00:00:00Z"); // Get selected date at midnight UTC
+
+            // Calculate days between reference date and the user's selected date
+            const daysSinceReference = getDaysBetweenDates(referenceDate, selectedDate);
+
+            update(daysSinceReference); // Update the orbits based on the user-provided date
+        }
+
+        function drawOrbit(x, y, radius) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.strokeStyle = 'white';
+            ctx.stroke();
+        }
+
+        function drawPlanet(x, y, color, size) {
+            ctx.beginPath();
+            ctx.arc(x, y, size, 0, Math.PI * 2);
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+
+        // Function to update planet positions based on the calculated days
+        function update(daysSinceReference) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+            // Draw the Sun at the center
+            drawPlanet(sunX, sunY, 'yellow', 10);
+
+            let coordinatesText = '';
+
+            // Loop through each planet and draw its position
+            planets.forEach(planet => {
+                drawOrbit(sunX, sunY, planet.radius); // Draw the orbit
+                
+                // Calculate the angle for the planet's position based on the days
+                const orbitalPeriodInDays = orbitalPeriods[planet.name] * 365.25; // Convert orbital period to days
+                const angle = 2 * Math.PI * (daysSinceReference / orbitalPeriodInDays); // Calculate angle
+
+                // Calculate the planet's position using the angle
+                const x = sunX + planet.radius * Math.cos(angle); // X position
+                const y = sunY + planet.radius * Math.sin(angle); // Y position
+
+                // Draw the planet at the calculated position
+                drawPlanet(x, y, 'white', 6);  // Increase the planet size for better visibility
+
+                // Display the coordinates of each planet
+                coordinatesText += `${planet.name}: (${x.toFixed(2)}, ${y.toFixed(2)})<br>`;
+            });
+
+            // Update the coordinates display on the screen
+            document.getElementById('coordinates').innerHTML = coordinatesText;
+        }
+
+    </script>
+</body>
+</html>
