@@ -50,8 +50,11 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center, start;
-    justify-content: space-between;
+    justify-content: space-around;
    /* width: 100%; */
+}
+.divOne {
+  align-items: center;
 }
 .row img {
     max-width: 100%;
@@ -85,15 +88,16 @@ top {
   
 }
 .time {
-  background-color:#463E3F;
-  height: 80%;
-  margin: 50px, 250px;
+  /*background-color:#463E3F; */
+  border: 2px solid black;
+  /* height: 80%; */
+  /* margin: 2px, 2px; */
 }
 
 /* dropdown menu */
 .dropdown {
   position: relative;
-  border: 2px solid black;
+  
   display: inline-block;
   color:#6495ED;
   font-size: 30px;
@@ -173,9 +177,16 @@ hours {
 name {
     font-family: verdana;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 70px;
     color: #6495ED;
     /*background-color: #ADD8F9;*/
+}
+test {
+  color: #d7e1f3;
+
+}
+monthRow {
+  width: 100%;
 }
 date {
   font-family: verdana;
@@ -268,6 +279,7 @@ body {font-family: Verdana, sans-serif;}
 /*  width: 100%; 
   background: #1abc9c; */
   text-align: center;
+  align-items: center;
 }
 
 .month ul {
@@ -284,17 +296,19 @@ body {font-family: Verdana, sans-serif;}
 
 .month .prev {
   float: left;
-  padding-top: 10px;
+ 
+  /* padding-top: 10px; */
 }
 
 .month .next {
   float: right;
-  padding-top: 10px;
+
+  /* padding-top: 10px; */
 }
 
 .weekdays {
   margin: 0;
-  padding: 2px 10px; 
+  /* padding: 2px 10px; */
   background-color: #ddd;
   text-align: center;
   
@@ -309,28 +323,30 @@ body {font-family: Verdana, sans-serif;}
   font-size:12px;
   text-align: center;
   color: #777;
+  width:13%;
 }
 
 .days {
-  padding: 10px 0;
+  /* padding: 10px 0; */
   margin: 0;
+  background-color: #ddd;
 }
 
-.days li {
+.days button {
   list-style-type: none;
   display: inline-block;
-  width: 13.6%;
+  width: 14.2%;
   text-align: center;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   font-size:12px;
   color: #777;
 }
 
-.days li:hover {
+.days button:hover {
   background: #c8e2dd;
 }
 
-.days li .active {
+.days button .active {
   padding: 5px;
   background: #1abc9c;
   color: white !important

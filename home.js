@@ -21,6 +21,7 @@ if (minutes < 10) minutes = '0' + minutes;
 if (seconds < 10) seconds = '0' + seconds;
 
 // Display the date on the webpage
+//distances in kilometers
 document.getElementById('month').innerText = month; 
 document.getElementById('year').innerText = year;
 document.getElementById('time').innerText = time;
@@ -29,6 +30,16 @@ document.getElementById('time').innerText = time;
 var fullDate = month + " " + day + "th"; // Adjust the "th" as necessary
 var time = " " + hours + ":" + minutes;
 var cDate = {month:month, day:day + "th", hours:hours, minutes:minutes, end:4, year:year};
+let infoSpeed = 300000; /* in kilometers */
+let moonD = {period: 655.68, dEarth:384400}; //period in hours
+let mercuryD = {period: 655.68, dEarth:384400}; //period in hours
+let marsD = {period: 655.68, dEarth:120000000}; //period in hours
+let jupiterD = {period: 655.68, dEarth:384400}; //period in hours
+let saturnD = {period: 655.68, dEarth:384400}; //period in hours
+let uranusD = {period: 655.68, dEarth:384400}; //period in hours
+let neptuneD = {period: 655.68, dEarth:384400}; //period in hours
+let venusD = {period: 655.68, dEarth:384400}; //period in hours
+
 if (cBody ==  "Earth") {
     
     document.querySelector('.box date').innerText = cDate.hours + ":" + cDate.minutes + " " + cDate.month + " " + cDate.day + " " + cDate.year;
@@ -46,7 +57,7 @@ document.querySelector('.box .row .time .dropdown span').innerText = time;
 var hoursContainer = document.getElementsByClassName('hours')[0];
 var disp = hours;
 for (var i = 0; i <= 11; i++) {
-    var hoursElement = document.createElement('p');
+    var hoursElement = document.createElement('hours');
     disp += 1;
     
     if (disp == 13) {
@@ -64,7 +75,7 @@ var daysContainer = document.getElementsByClassName('days')[0];
 var daysInMonth = new Date(year, currentDate.getMonth() + 1, 0).getDate(); // Get the number of days in the current month
 
 for (var i = 1; i <= daysInMonth; i++) {
-    var dayElement = document.createElement('li'); 
+    var dayElement = document.createElement('button'); 
     dayElement.innerText = i; 
     if (i == day) { 
         dayElement.classList.add('active'); 
@@ -81,7 +92,12 @@ buttons.forEach(button => {
 }); */
 document.querySelector('.convert-Buton').addEventListener('click', function() {
     fullDate = month + " " + day + "th";
-    document.querySelector('.box date').innerText = cDate.minutes + cDate.end + " " + cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cYear;
+    document.querySelector('.box date').innerText = cDate.hours + ":" + cDate.minutes +  " Sol " + 52 + " " + cYear;
+});
+document.querySelector('.next-Buton').addEventListener('click', function() {
+    month = months[monthNum + 1];
+    document.getElementById('month').innerText = month;
+    
 });
 
 
@@ -90,7 +106,7 @@ document.querySelectorAll('.png-button').forEach(button => {
         const selectedHeight = 200; // Desired final height in pixels 
         // Calcs for each celestial body
         if (button.id == "Mars") {
-            cBody = "Mars";
+            cBody = "Data to Mars has a "+ marsD.dEarth/infoSpeed + " second delay" ;
             cDate.end = 4;
             cDate.month = (monthNum + 1) * 2;
             //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
@@ -112,7 +128,7 @@ document.querySelectorAll('.png-button').forEach(button => {
             
         }
         if (button.id == "Moon") {
-            cBody = "Moon";
+            cBody = "Delay = " + moonD.dEarth/infoSpeed; // delay in seconds
             cDate.end = 3;
             day = day - 5;
             //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
