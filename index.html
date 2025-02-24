@@ -25,7 +25,7 @@
 			<a href="methodology/index.html">Methodology</a>
 			<a href="applications/index.html">Applications</a>
 			<a href="DM/index.html"></a>
-			<a href="ISP/index.html">ISP</a>
+			<a href="distanceCalculations.html">ISP</a>
 			<a href="CBE.html">Celestial Body Editor</a>
 
 	</div>
@@ -42,28 +42,31 @@
 		<br>
 		<name>Select Date</name>
 
-		
+
 		<div class="row">
 			<div>
-				<div class="month">
-					<ul>
-						<div class="row">
-		
-		
-							<li>
-								
-								<span id="year" style="font-size:18px"></span>
-								<div class="monthRow">
-								<button class="prev">&#10094;</button>
-								<span id="month"></span>
-								<button class="next">&#10095;</button>
-								</div>
-							</li>
-						</div>
-					</ul>
-				</div>
+
 				<br>
 				<ul class="weekdays">
+					<!-- <div class="month"> -->
+					<!-- <ul> 
+							<div class="row"> -->
+
+					<div class="monthRow">
+						<button class="prevYear">&#10094;</button>
+						<span id="year"></span>
+						<button class="nextYear">&#10095;</button>
+					</div>
+					<div class="monthRow">
+						<button class="prev">&#10094;</button>
+						<span id="month"></span>
+						<button class="next">&#10095;</button>
+					</div>
+
+
+					<!-- </div>
+						</ul> -->
+					<!-- </div> -->
 
 					<li> Mon</li>
 					<li>Tues</li>
@@ -76,6 +79,7 @@
 				</ul>
 				<ul class="days">
 					<div class="day-button"></div>
+					<br>
 				</ul>
 				<div class="time">
 					<div class="dropdown">
@@ -83,8 +87,8 @@
 						<div class="dropdown-content">
 							<div class="hours"></div>
 						</div>
-	
-	
+
+
 					</div>
 					<div class="dropdown">
 						<span>AM</span>
@@ -99,34 +103,38 @@
 					<input type="text" id="fname" name="fname" style="height: 50px;">
 				</form>
 				
+				<selectedDate id="selectedDate"></selectedDate>
+
 			</div>
 
 			<br>
-			
+
 			<br>
 
 			<bodySelect>
 				<br>
 				<div class="time">
 					<div class="dropdown">
-						<span>Earth</span>
+						<Name>Earth</Name>
 						<div class="dropdown-content">
-							Mercury
-							Venus
-							Earth
-							Mars
-							Jupiter
-							Saturn
-							Uranus
-							Neptune
-							Pluto
-							Europa
+							<button id="img/Mercury.png">Mercury</button>
+							<button id="img/Venus.png">Venus</button>
+							<button id="img/Earth.png">Earth</button>
+							<button id="img/Moon.png">Moon</button>
+							<button id="img/Mars.png">Mars</button>
+							<button id="img/Jupiter.png">Jupiter</button>
+							<button id="img/Saturn.png">Saturn</button>
+							<button id="Uranus.PNG">Uranus</button>
+							<button id="img/Neptune.png">Neptune</button>
+							<button id="img/Pluto.png">Pluto</button>
+							<button id="img/Europa.jpg">Europa</button>
 						</div>
 
 
 					</div>
 				</div>
-				<img src="img/Earth.png">
+				
+				<img id="planet-image" src="img/Earth.png" alt="Planet Image">
 				<div class="dropdown">
 					<span>UTC - 6</span>
 					<div class="dropdown-content">
@@ -138,6 +146,7 @@
 
 
 				</div>
+				<reset button></reset>
 		</div>
 		</bodySelect>
 		<br>

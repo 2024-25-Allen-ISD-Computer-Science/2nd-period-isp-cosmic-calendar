@@ -6,19 +6,23 @@
 }
 
 .CBEbox {
-    h1 {color: blue;
+    h1 {color: #6495ED;
     font-size: 60px;
 <<<<<<< HEAD
     
    
 =======
    text-align: center;
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
+   font-family: 'Times New Roman', Times, serif;
 >>>>>>> origin/main
     }
   p  {
-        font-family: verdana;
+        font-family: 'Times New Roman', Times, serif;
         font-weight: bold;
-        font-size: 30px;
+        font-size: 25px;
         color: #6495ED;
         /*background-color: #ADD8F9;*/
     }
@@ -28,6 +32,8 @@
 
 h2 {
     text-align: center;
+    color: #6495ED;
+
 }
 
 
@@ -42,6 +48,7 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
 
 .month {
@@ -60,5 +67,5 @@ h2 {
 }
 
 .script {
-    
+
 }
