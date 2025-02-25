@@ -178,6 +178,7 @@ document.querySelector('.prevYear').addEventListener('click', function () {
 document.querySelectorAll('.day-button').forEach(button => {
     button.addEventListener('click', function () {
         selectedDay = button.innerText;
+        cDate.day = selectedDay;
         updateSelectedDate();
         fillDays();
     });
@@ -198,8 +199,9 @@ document.querySelectorAll('.png-button').forEach(button => {
             cYear = daysPassed/687 + 1955;
             cBody = "Data to Mars has a " + marsD.dEarth / infoSpeed + " second delay";
             cDate.day = Math.floor((cYear - Math.floor(cYear)) * 669.6)
-            cDate.end = 4;
-            cDate.month = (monthNum + 1) * 2;
+            
+            cDate.end = 4; 
+            
         }
         if (button.id == "Mercury") {
             cBody = "Data to Mercury has a " + mercuryD.dEarth / infoSpeed + " second delay";
