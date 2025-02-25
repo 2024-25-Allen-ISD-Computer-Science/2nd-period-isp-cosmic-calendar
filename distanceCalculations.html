@@ -88,7 +88,7 @@
             { name: 'Neptune', radius: 400 }
         ];
 
-        // Set the reference date to May 5, 2000
+       
         const referenceDate = new Date('2000-05-05T00:00:00Z');
         let animationFrameId;
         let isAnimating = false;
@@ -164,7 +164,7 @@
 
             document.getElementById('coordinates').innerHTML = coordinatesText;
 
-            // Display the current date based on daysSinceReference
+            
             const currentDate = new Date(referenceDate);
             currentDate.setDate(referenceDate.getDate() + daysSinceReference); // Add days to the reference date
             currentDateDisplay.textContent = `Current Date: ${currentDate.toISOString().split('T')[0]}`;
@@ -188,7 +188,7 @@
             isAnimating = !isAnimating;
         }
 
-        // Change speed factor when user selects a speed
+        
         function changeSpeed(factor) {
             if (factor === 1) {
                 speedFactor = 0.01;  // 1x speed (normal speed)
@@ -196,13 +196,13 @@
                 speedFactor = 0.01 * factor;  // Multiply by the selected speed factor (32x, 8x, 128x)
             }
             if (isAnimating) {
-                // Restart the animation with the new speed
+                
                 cancelAnimationFrame(animationFrameId);
                 animate();
             }
         }
 
-        // Handle the Set Date button click event
+        
         setDateButton.addEventListener('click', startOrbit);
     </script>
 </body>
