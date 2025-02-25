@@ -96,7 +96,41 @@
 
 
 
+<br>
+<div class="box">
+<!-- <button class="button button1" onclick="alert('Switching Pages...')">Switch Pages</button> -->
+
+
+<h2>Planet Information</h2>
+
+<p><strong>Orbit:</strong> <span id="orbitValue">Loading...</span> days</p>
+<p><strong>Rotation Speed:</strong> <span id="rotationSpeedValue">Loading...</span> <span id="rotationUnit">Loading...</span></p>
+
+<script>
+  
+  function getQueryParameter(param) {
+      var urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+  }
+
+  
+  var orbit = getQueryParameter('orbit');
+  var rotationSpeed = getQueryParameter('rotationSpeed');
+  var rotationUnit = getQueryParameter('rotationUnit');
+
+ 
+  if (orbit && rotationSpeed && rotationUnit) {
+      document.getElementById('orbitValue').textContent = orbit;
+      document.getElementById('rotationSpeedValue').textContent = rotationSpeed;
+      document.getElementById('rotationUnit').textContent = rotationUnit;
+  } else {
       
+      document.getElementById('orbitValue').textContent = "Not available";
+      document.getElementById('rotationSpeedValue').textContent = "Not available";
+      document.getElementById('rotationUnit').textContent = "Not available";
+  }
+</script>
+
 
      
 
