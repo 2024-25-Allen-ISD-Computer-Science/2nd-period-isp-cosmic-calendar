@@ -27,6 +27,14 @@
         #dateInput {
             margin-top: 20px;
         }
+        #playPauseBtn, #speedControl {
+            margin-top: 20px;
+        }
+        #currentDate {
+            position: absolute;
+            bottom: 20px;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -35,53 +43,77 @@
     <div id="dateInput">
         <label for="date">Enter a Date (YYYY-MM-DD): </label>
         <input type="date" id="date">
-        <button onclick="startOrbit()">Set Date</button>
+        <button id="setDateBtn">Set Date</button>
     </div>
+    <div id="playPauseBtn">
+        <button onclick="toggleAnimation()">Play</button>
+    </div>
+    <div id="speedControl">
+        <button onclick="changeSpeed(1)">1x Speed</button>
+        <button onclick="changeSpeed(8)">8x Speed</button>
+        <button onclick="changeSpeed(32)">32x Speed</button>
+        <button onclick="changeSpeed(128)">128x Speed</button>
+    </div>
+    <div id="currentDate"></div>
+
     <script>
-        // Set up canvas and 2D context
         const canvas = document.getElementById('orbitCanvas');
         const ctx = canvas.getContext('2d');
+        const playPauseButton = document.querySelector('#playPauseBtn button');
+        const currentDateDisplay = document.getElementById('currentDate');
+        const setDateButton = document.getElementById('setDateBtn');
 
-        // Sun coordinates (center of the canvas)
         const sunX = canvas.width / 2;
         const sunY = canvas.height / 2;
 
-        // Orbital periods of planets in Earth years
         const orbitalPeriods = {
             Mercury: 0.24,
             Venus: 0.615,
             Earth: 1,
             Mars: 1.88,
             Jupiter: 11.86,
-            Saturn: 29.46
+            Saturn: 29.46,
+            Uranus: 84,
+            Neptune: 164
         };
 
-        // Orbital radii (arbitrary units)
         const planets = [
             { name: 'Mercury', radius: 50 },
             { name: 'Venus', radius: 80 },
             { name: 'Earth', radius: 120 },
             { name: 'Mars', radius: 160 },
             { name: 'Jupiter', radius: 220 },
-            { name: 'Saturn', radius: 280 }
+            { name: 'Saturn', radius: 280 },
+            { name: 'Uranus', radius: 340 },
+            { name: 'Neptune', radius: 400 }
         ];
 
-        // Reference date for the starting point (e.g., January 1, 2000)
-        const referenceDate = new Date('January 1, 2000 00:00:00 UTC');
+        // Set the reference date to May 5, 2000
+        const referenceDate = new Date('2000-05-05T00:00:00Z');
+        let animationFrameId;
+        let isAnimating = false;
+        let daysSinceReference = 0;
+        let speedFactor = 0.01; // Default speed factor (slower animation)
 
-        // Function to calculate days since reference date
         function getDaysBetweenDates(startDate, endDate) {
             const timeDiff = endDate - startDate; // Time in milliseconds
             return timeDiff / (1000 * 60 * 60 * 24); // Convert to days
         }
 
-        // Function to handle user input and start the orbit
         function startOrbit() {
             const userDate = document.getElementById('date').value;
             const selectedDate = new Date(userDate + "T00:00:00Z"); // Get selected date at midnight UTC
 
-            // Calculate days between reference date and the user's selected date
-            const daysSinceReference = getDaysBetweenDates(referenceDate, selectedDate);
+            console.log('Selected Date:', selectedDate);
+
+            if (isNaN(selectedDate.getTime())) {
+                alert('Please enter a valid date!');
+                return;
+            }
+
+            // Calculate the days since the reference date
+            daysSinceReference = getDaysBetweenDates(referenceDate, selectedDate);
+            console.log('Days since reference:', daysSinceReference);
 
             update(daysSinceReference); // Update the orbits based on the user-provided date
         }
@@ -93,44 +125,85 @@
             ctx.stroke();
         }
 
-        function drawPlanet(x, y, color, size) {
+        function drawPlanet(x, y, name) {
             ctx.beginPath();
-            ctx.arc(x, y, size, 0, Math.PI * 2);
-            ctx.fillStyle = color;
+            ctx.arc(x, y, 6, 0, Math.PI * 2); // Planet circle with size 6
+            ctx.fillStyle = 'white';
             ctx.fill();
+
+            // Draw the planet name next to it
+            ctx.font = '12px Arial';
+            ctx.fillStyle = 'white';
+            ctx.fillText(name, x + 10, y); // Adjust the position of the name next to the planet
         }
 
-        // Function to update planet positions based on the calculated days
         function update(daysSinceReference) {
             ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
-            // Draw the Sun at the center
-            drawPlanet(sunX, sunY, 'yellow', 10);
+
+            // Draw the sun in yellow and smaller (radius 15)
+            ctx.beginPath();
+            ctx.arc(sunX, sunY, 15, 0, Math.PI * 2); // Sun circle with size 15
+            ctx.fillStyle = 'yellow';
+            ctx.fill();
 
             let coordinatesText = '';
 
-            // Loop through each planet and draw its position
             planets.forEach(planet => {
                 drawOrbit(sunX, sunY, planet.radius); // Draw the orbit
-                
-                // Calculate the angle for the planet's position based on the days
+
                 const orbitalPeriodInDays = orbitalPeriods[planet.name] * 365.25; // Convert orbital period to days
                 const angle = 2 * Math.PI * (daysSinceReference / orbitalPeriodInDays); // Calculate angle
 
-                // Calculate the planet's position using the angle
                 const x = sunX + planet.radius * Math.cos(angle); // X position
                 const y = sunY + planet.radius * Math.sin(angle); // Y position
 
-                // Draw the planet at the calculated position
-                drawPlanet(x, y, 'white', 6);  // Increase the planet size for better visibility
+                drawPlanet(x, y, planet.name);  // Draw the planet with its name
 
-                // Display the coordinates of each planet
                 coordinatesText += `${planet.name}: (${x.toFixed(2)}, ${y.toFixed(2)})<br>`;
             });
 
-            // Update the coordinates display on the screen
             document.getElementById('coordinates').innerHTML = coordinatesText;
+
+            // Display the current date based on daysSinceReference
+            const currentDate = new Date(referenceDate);
+            currentDate.setDate(referenceDate.getDate() + daysSinceReference); // Add days to the reference date
+            currentDateDisplay.textContent = `Current Date: ${currentDate.toISOString().split('T')[0]}`;
         }
 
+        function animate() {
+            // Slow down the animation by incrementing fewer days per frame
+            daysSinceReference += speedFactor;  // Adjust increment based on speedFactor
+            update(daysSinceReference);
+            animationFrameId = requestAnimationFrame(animate);
+        }
+
+        function toggleAnimation() {
+            if (isAnimating) {
+                cancelAnimationFrame(animationFrameId);
+                playPauseButton.textContent = 'Play';
+            } else {
+                animate();
+                playPauseButton.textContent = 'Stop';
+            }
+            isAnimating = !isAnimating;
+        }
+
+        // Change speed factor when user selects a speed
+        function changeSpeed(factor) {
+            if (factor === 1) {
+                speedFactor = 0.01;  // 1x speed (normal speed)
+            } else {
+                speedFactor = 0.01 * factor;  // Multiply by the selected speed factor (32x, 8x, 128x)
+            }
+            if (isAnimating) {
+                // Restart the animation with the new speed
+                cancelAnimationFrame(animationFrameId);
+                animate();
+            }
+        }
+
+        // Handle the Set Date button click event
+        setDateButton.addEventListener('click', startOrbit);
     </script>
 </body>
 </html>
