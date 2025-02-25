@@ -1,13 +1,23 @@
 .transbox {
-    opacity: 0.6;
-    background-color: #c9c9c9
+    /* opacity: 0.0; */
+    /*background-color: #c9c9c9 */
+    color: #6495ED;
+    font-size:25x;
 }
 
 .CBEbox {
     h1 {color: #6495ED;
     font-size: 60px;
+<<<<<<< HEAD
+    
+   
+=======
    text-align: center;
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
    font-family: 'Times New Roman', Times, serif;
+>>>>>>> origin/main
     }
   p  {
         font-family: 'Times New Roman', Times, serif;
