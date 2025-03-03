@@ -17,7 +17,7 @@
 	<a href="methodology/index.html">Methodology</a>
 	<a href="applications/index.html">Applications</a>
 	<a href="DM/index.html"></a>
-	<a href="ISP/index.html">ISP</a>
+	<a href="distanceCalculations.html">ISP</a>
 	<a href="CBE.html">Celestial Body Editor</a>
 
     </div>
@@ -45,14 +45,7 @@
 
     
  
-      <div class="container">
-        <div class="buttons">
-            <span class="arrow" id="back-arrow">&lt;</span>
-            <div class="month" id="month-display"></div>
-            <span class="arrow" id="forward-arrow">&gt;</span>
-        </div>
-        </div>
-
+      
 
         <script>
           // Array of months
@@ -103,84 +96,139 @@
 
 
 
-			</ul>
+<br>
+<div class="box">
+<!-- <button class="button button1" onclick="alert('Switching Pages...')">Switch Pages</button> -->
+
+
+<h2>Planet Information</h2>
+
+<p><strong>Orbit:</strong> <span id="orbitValue">Loading...</span> days</p>
+<p><strong>Rotation Speed:</strong> <span id="rotationSpeedValue">Loading...</span> <span id="rotationUnit">Loading...</span></p>
+
+<script>
+  
+  function getQueryParameter(param) {
+      var urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+  }
+
+  
+  var orbit = getQueryParameter('orbit');
+  var rotationSpeed = getQueryParameter('rotationSpeed');
+  var rotationUnit = getQueryParameter('rotationUnit');
+
+ 
+  if (orbit && rotationSpeed && rotationUnit) {
+      document.getElementById('orbitValue').textContent = orbit;
+      document.getElementById('rotationSpeedValue').textContent = rotationSpeed;
+      document.getElementById('rotationUnit').textContent = rotationUnit;
+  } else {
       
-
-      <ul class="weekdays">
-      </ul>
-
-      <ul class="days"> 
-		<button id="button-sun">Sun</button> 
-		<button id="button-mon">Mon</button> 
-		<button id="button-tue">Tue</button> 
-		<button id="button-wed">Wed</button> 
-		<button id="button-thu">Thu</button> 
-		<button id="button-fri">Fri</button> 
-		<button id="button-sat">Sat</button>
-		<div class="day-li"></div>
-	
-	
-      </ul>
-      <br>
-      
-
-    </div>
-	  <br>
-	  <div class="box">
-	  <!-- <button class="button button1" onclick="alert('Switching Pages...')">Switch Pages</button> -->
+      document.getElementById('orbitValue').textContent = "Not available";
+      document.getElementById('rotationSpeedValue').textContent = "Not available";
+      document.getElementById('rotationUnit').textContent = "Not available";
+  }
+</script>
 
 
-    <h2>Planet Information</h2>
 
-    <p><strong>Orbit:</strong> <span id="orbitValue">Loading...</span> days</p>
-    <p><strong>Rotation Speed:</strong> <span id="rotationSpeedValue">Loading...</span> <span id="rotationUnit">Loading...</span></p>
-    
-    <script>
-        
-        function getQueryParameter(param) {
-            var urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-    
-        
-        var orbit = getQueryParameter('orbit');
-        var rotationSpeed = getQueryParameter('rotationSpeed');
-        var rotationUnit = getQueryParameter('rotationUnit');
-    
-       
-        if (orbit && rotationSpeed && rotationUnit) {
-            document.getElementById('orbitValue').textContent = orbit;
-            document.getElementById('rotationSpeedValue').textContent = rotationSpeed;
-            document.getElementById('rotationUnit').textContent = rotationUnit;
-        } else {
-            
-            document.getElementById('orbitValue').textContent = "Not available";
-            document.getElementById('rotationSpeedValue').textContent = "Not available";
-            document.getElementById('rotationUnit').textContent = "Not available";
-        }
-    </script>
-
+<div class="box">
     <br>
-	<br>
+    <name>Select Date</name>
+
+
+    <div class="row">
+        <div>
+
+            <br>
+            <ul class="weekdays">
+                <!-- <div class="month"> -->
+                <!-- <ul> 
+                        <div class="row"> -->
+
+                <div class="monthRow">
+                    <button class="prevYear">&#10094;</button>
+                    <span id="year"></span>
+                    <button class="nextYear">&#10095;</button>
+                </div>
+                <div class="monthRow">
+                    <button class="prev">&#10094;</button>
+                    <span id="month"></span>
+                    <button class="next">&#10095;</button>
+                </div>
+
+
+                <!-- </div>
+                    </ul> -->
+                <!-- </div> -->
+
+                <li> Mon</li>
+                <li>Tues</li>
+                <li>Wed</li>
+                <li>Thurs</li>
+                <li>Fri</li>
+                <li>Sat</li>
+                <li>Sun </li>
+
+            </ul>
+            <ul class="days">
+                <div class="day-button"></div>
+                <br>
+            </ul>
+            <div class="time">
+                <div class="dropdown">
+                    <span>Time Selector</span>
+                    <div class="dropdown-content">
+                        <div class="hours"></div>
+                    </div>
+
+
+                </div>
+                <div class="dropdown">
+                    <span>AM</span>
+                    <div class="dropdown-content">
+                        AM
+                        PM
+                    </div>
+                </div>
+            </div>
+            <form action="/action_page.php">
+                <name for="fname">Event:</name>
+                <input type="text" id="fname" name="fname" style="height: 50px;">
+            </form>
+            
+            <selectedDate id="selectedDate"></selectedDate>
+
+        </div>
+
+
+
+
+
 	
 	  </div>
     <br>
     <div class="box">
       <br>
-	  <div class="Convert-Buton">
-      <h1> Converted Time</h1>
-	  </div>
-	  <date></date>
-		
-      <br>
-	  
-    </div>
+      <div class="box">
+		<br>
+		<div class="Convert-Buton">
+			<button class="convert-Buton" onclick="alert('Converting Time...')">Convert Time</button>
+		</div>
+		<date></date>
+		<test></test>
+
+		<br>
+
+	</div>
 	<br>
 	<div id="time"></div>
+
 	<script src="home.js" defer></script>
   </body>
   <link rel="icon" type="image/x-icon" href="/img/Logo.png" />
   <link rel="stylesheet" href="sites.css" />
-  <script src="CBE.js"></script>
+  <script src="home.js" defer></script>
   
 </html>

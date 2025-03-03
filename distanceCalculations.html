@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar System in 2D</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    
+    
     <style>
         body {
             display: flex;
@@ -26,6 +30,11 @@
         }
         #dateInput {
             margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+        #dateInput label {
+            margin-right: 10px;
         }
         #playPauseBtn, #speedControl {
             margin-top: 20px;
@@ -42,7 +51,7 @@
     <div id="coordinates"></div>
     <div id="dateInput">
         <label for="date">Enter a Date (YYYY-MM-DD): </label>
-        <input type="date" id="date">
+        <input type="text" id="date" class="datepicker">
         <button id="setDateBtn">Set Date</button>
     </div>
     <div id="playPauseBtn">
@@ -56,12 +65,14 @@
     </div>
     <div id="currentDate"></div>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         const canvas = document.getElementById('orbitCanvas');
         const ctx = canvas.getContext('2d');
         const playPauseButton = document.querySelector('#playPauseBtn button');
         const currentDateDisplay = document.getElementById('currentDate');
         const setDateButton = document.getElementById('setDateBtn');
+        const dateInput = document.getElementById('date');
 
         const sunX = canvas.width / 2;
         const sunY = canvas.height / 2;
@@ -88,7 +99,7 @@
             { name: 'Neptune', radius: 400 }
         ];
 
-       
+        // Set the reference date to May 5, 2000
         const referenceDate = new Date('2000-05-05T00:00:00Z');
         let animationFrameId;
         let isAnimating = false;
@@ -101,7 +112,7 @@
         }
 
         function startOrbit() {
-            const userDate = document.getElementById('date').value;
+            const userDate = dateInput.value;
             const selectedDate = new Date(userDate + "T00:00:00Z"); // Get selected date at midnight UTC
 
             console.log('Selected Date:', selectedDate);
@@ -164,7 +175,7 @@
 
             document.getElementById('coordinates').innerHTML = coordinatesText;
 
-            
+            // Display the current date based on daysSinceReference
             const currentDate = new Date(referenceDate);
             currentDate.setDate(referenceDate.getDate() + daysSinceReference); // Add days to the reference date
             currentDateDisplay.textContent = `Current Date: ${currentDate.toISOString().split('T')[0]}`;
@@ -188,7 +199,7 @@
             isAnimating = !isAnimating;
         }
 
-        
+        // Change speed factor when user selects a speed
         function changeSpeed(factor) {
             if (factor === 1) {
                 speedFactor = 0.01;  // 1x speed (normal speed)
@@ -196,14 +207,19 @@
                 speedFactor = 0.01 * factor;  // Multiply by the selected speed factor (32x, 8x, 128x)
             }
             if (isAnimating) {
-                
+                // Restart the animation with the new speed
                 cancelAnimationFrame(animationFrameId);
                 animate();
             }
         }
 
-        
+        // Handle the Set Date button click event
         setDateButton.addEventListener('click', startOrbit);
+
+        // Initialize Flatpickr for date input
+        flatpickr("#date", {
+            dateFormat: "Y-m-d",  // Format it as YYYY-MM-DD
+        });
     </script>
 </body>
 </html>
