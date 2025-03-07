@@ -74,6 +74,12 @@
         controls.dampingFactor = 0.25;
         controls.screenSpacePanning = false;
 
+        // Lighting for the scene
+        const ambientLight = new THREE.AmbientLight(0x404040, 2);  // Ambient light
+        const pointLight = new THREE.PointLight(0xffffff, 2, 1000);  // Light source for the Sun
+        pointLight.position.set(0, 0, 0);  // Place the light at the Sun
+        scene.add(ambientLight, pointLight);
+
         // Load textures for Sun and Planets
         const textureLoader = new THREE.TextureLoader();
         const sunTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/6/6a/Sun_%28NASA%29.jpg');
@@ -88,7 +94,7 @@
 
         // Sun
         const sunGeometry = new THREE.SphereGeometry(15, 32, 32);
-        const sunMaterial = new THREE.MeshBasicMaterial({ map: sunTexture });
+        const sunMaterial = new THREE.MeshStandardMaterial({ map: sunTexture });
         const sun = new THREE.Mesh(sunGeometry, sunMaterial);
         scene.add(sun);
 
@@ -117,7 +123,7 @@
 
         let planetMeshes = planets.map(planet => {
             const geometry = new THREE.SphereGeometry(planet.size, 32, 32);
-            const material = new THREE.MeshBasicMaterial({ map: planet.texture });
+            const material = new THREE.MeshStandardMaterial({ map: planet.texture });
             const planetMesh = new THREE.Mesh(geometry, material);
             scene.add(planetMesh);
             return { name: planet.name, radius: planet.radius, mesh: planetMesh, angle: 0 };
