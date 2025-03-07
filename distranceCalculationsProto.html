@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System in 3D</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+        #dateInput {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 16px;
+            color: white;
+        }
+        #playPauseBtn {
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            font-size: 16px;
+            color: white;
+        }
+        #speedControl {
+            position: absolute;
+            top: 80px;
+            left: 20px;
+            font-size: 16px;
+            color: white;
+        }
+        #currentDate {
+            position: absolute;
+            bottom: 20px;
+            font-size: 18px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="dateInput">
+        <label for="date">Enter a Date (YYYY-MM-DD): </label>
+        <input type="text" id="date" class="datepicker">
+        <button id="setDateBtn">Set Date</button>
+    </div>
+    <div id="playPauseBtn">
+        <button onclick="toggleAnimation()">Play</button>
+    </div>
+    <div id="speedControl">
+        <button onclick="changeSpeed(1)">1x Speed</button>
+        <button onclick="changeSpeed(8)">8x Speed</button>
+        <button onclick="changeSpeed(32)">32x Speed</button>
+        <button onclick="changeSpeed(128)">128x Speed</button>
+    </div>
+    <div id="currentDate"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.138.3/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.138.3/examples/js/controls/OrbitControls.js"></script>
+    <script>
+        // Set up scene, camera, and renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight); // Fullscreen renderer
+        document.body.appendChild(renderer.domElement);
+
+        // OrbitControls for free camera movement
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.25;
+        controls.screenSpacePanning = false;
+
+        // Load textures for Sun and Planets
+        const textureLoader = new THREE.TextureLoader();
+        const sunTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/6/6a/Sun_%28NASA%29.jpg');
+        const mercuryTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/1/1b/Mercury_%28planet%29.jpg');
+        const venusTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/a/a5/Venus_cropped.jpg');
+        const earthTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/a/a9/Earth_and_Moon.jpg');
+        const marsTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/7/7e/Mars_MRO.jpg');
+        const jupiterTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/e/e2/Jupiter_%28NASA_Orion_Composite%29.jpg');
+        const saturnTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/a/a2/Saturn_during_Equinox.jpg');
+        const uranusTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/3/3e/Uranus2.jpg');
+        const neptuneTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/0/04/Neptune_Full.jpg');
+
+        // Sun
+        const sunGeometry = new THREE.SphereGeometry(15, 32, 32);
+        const sunMaterial = new THREE.MeshBasicMaterial({ map: sunTexture });
+        const sun = new THREE.Mesh(sunGeometry, sunMaterial);
+        scene.add(sun);
+
+        // Planets array (name, distance from sun, size, texture)
+        const orbitalPeriods = {
+            Mercury: 0.24,
+            Venus: 0.615,
+            Earth: 1,
+            Mars: 1.88,
+            Jupiter: 11.86,
+            Saturn: 29.46,
+            Uranus: 84,
+            Neptune: 164
+        };
+
+        const planets = [
+            { name: 'Mercury', radius: 50, size: 4, texture: mercuryTexture },
+            { name: 'Venus', radius: 80, size: 6, texture: venusTexture },
+            { name: 'Earth', radius: 120, size: 8, texture: earthTexture },
+            { name: 'Mars', radius: 160, size: 7, texture: marsTexture },
+            { name: 'Jupiter', radius: 220, size: 12, texture: jupiterTexture },
+            { name: 'Saturn', radius: 280, size: 10, texture: saturnTexture },
+            { name: 'Uranus', radius: 340, size: 8, texture: uranusTexture },
+            { name: 'Neptune', radius: 400, size: 7, texture: neptuneTexture }
+        ];
+
+        let planetMeshes = planets.map(planet => {
+            const geometry = new THREE.SphereGeometry(planet.size, 32, 32);
+            const material = new THREE.MeshBasicMaterial({ map: planet.texture });
+            const planetMesh = new THREE.Mesh(geometry, material);
+            scene.add(planetMesh);
+            return { name: planet.name, radius: planet.radius, mesh: planetMesh, angle: 0 };
+        });
+
+        // Set camera position
+        camera.position.set(0, 200, 600);
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+        // Set up orbit speed and reference date
+        const referenceDate = new Date('2000-05-05T00:00:00Z');
+        let daysSinceReference = 0;
+        let speedFactor = 0.01;
+        let isAnimating = false;
+        let animationFrameId;
+
+        function getDaysBetweenDates(startDate, endDate) {
+            const timeDiff = endDate - startDate;
+            return timeDiff / (1000 * 60 * 60 * 24);
+        }
+
+        function startOrbit() {
+            const userDate = document.getElementById('date').value;
+            const selectedDate = new Date(userDate + "T00:00:00Z");
+
+            if (isNaN(selectedDate.getTime())) {
+                alert('Please enter a valid date!');
+                return;
+            }
+
+            daysSinceReference = getDaysBetweenDates(referenceDate, selectedDate);
+            update(daysSinceReference);
+        }
+
+        function update(daysSinceReference) {
+            // Update planets' positions
+            planetMeshes.forEach(planet => {
+                const orbitalPeriodInDays = orbitalPeriods[planet.name] * 365.25;
+                const angle = 2 * Math.PI * (daysSinceReference / orbitalPeriodInDays);
+                planet.angle = angle;
+
+                const x = planet.radius * Math.cos(angle);
+                const z = planet.radius * Math.sin(angle);
+
+                planet.mesh.position.set(x, 0, z);
+            });
+
+            // Update current date
+            const currentDate = new Date(referenceDate);
+            currentDate.setDate(referenceDate.getDate() + daysSinceReference);
+            document.getElementById('currentDate').textContent = `Current Date: ${currentDate.toISOString().split('T')[0]}`;
+        }
+
+        function animate() {
+            daysSinceReference += speedFactor;
+            update(daysSinceReference);
+            controls.update(); // Update controls for smooth interaction
+            renderer.render(scene, camera);
+            animationFrameId = requestAnimationFrame(animate);
+        }
+
+        function toggleAnimation() {
+            if (isAnimating) {
+                cancelAnimationFrame(animationFrameId);
+                document.querySelector('#playPauseBtn button').textContent = 'Play';
+            } else {
+                animate();
+                document.querySelector('#playPauseBtn button').textContent = 'Stop';
+            }
+            isAnimating = !isAnimating;
+        }
+
+        function changeSpeed(factor) {
+            speedFactor = 0.01 * factor;
+            if (isAnimating) {
+                cancelAnimationFrame(animationFrameId);
+                animate();
+            }
+        }
+
+        // Initialize with planets in static positions (before play)
+        update(daysSinceReference);
+
+        document.getElementById('setDateBtn').addEventListener('click', startOrbit);
+        flatpickr("#date", {
+            dateFormat: "Y-m-d",
+        });
+
+        // Render the static scene once on page load
+        renderer.render(scene, camera);
+    </script>
+</body>
+</html>
