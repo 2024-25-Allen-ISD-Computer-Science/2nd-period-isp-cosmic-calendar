@@ -208,7 +208,7 @@ document.querySelectorAll('.png-button').forEach(button => {
             cYear = daysPassed/88 + 1955;
             cDate.day = Math.floor((cYear - Math.floor(cYear)) * 88)
             cDate.end = 1;
-            day = day - 5;
+            
             //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
 
         }
@@ -225,7 +225,7 @@ document.querySelectorAll('.png-button').forEach(button => {
             cYear = daysPassed/225 + 1955;
             cDate.day = Math.floor((cYear - Math.floor(cYear)) * 88)
             cDate.end = 2;
-            day = day - 5;
+            
             //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
 
         }
@@ -234,7 +234,7 @@ document.querySelectorAll('.png-button').forEach(button => {
             cYear = daysPassed/4333 + 1955;
             cDate.day = Math.floor((cYear - Math.floor(cYear)) * 10,539.80535279805)
             cDate.end = 5;
-            day = day - 5;
+            
             //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
 
         }
@@ -243,7 +243,7 @@ document.querySelectorAll('.png-button').forEach(button => {
             cYear = daysPassed/10756 + 1955;
             cDate.day = Math.floor((cYear - Math.floor(cYear)) * 24,592,386.85714286)
             cDate.end = 6;
-            day = day - 5;
+            
             //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
 
         }
@@ -252,7 +252,7 @@ document.querySelectorAll('.png-button').forEach(button => {
             cYear = daysPassed/30687 + 1955;
             cDate.day = Math.floor((cYear - Math.floor(cYear)) * 83,596.59375)
             cDate.end = 8;
-            day = day - 5;
+            
             //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
 
         }
@@ -261,7 +261,7 @@ document.querySelectorAll('.png-button').forEach(button => {
             cYear = daysPassed/60190 + 1955;
             cDate.day = Math.floor((cYear - Math.floor(cYear)) * 71,860.88992974239)
             cDate.end = 7;
-            day = day - 5;
+            
             //document.querySelector('.box date').innerText = cDate.month + " " + cDate.day + " " + cDate.hours + ":" + cDate.minutes + cDate.end;
 
         }
