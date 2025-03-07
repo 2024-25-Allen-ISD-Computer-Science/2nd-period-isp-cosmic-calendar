@@ -92,6 +92,14 @@
         const uranusTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/3/3e/Uranus2.jpg');
         const neptuneTexture = textureLoader.load('https://upload.wikimedia.org/wikipedia/commons/0/04/Neptune_Full.jpg');
 
+        // Error checking for textures
+        textureLoader.load(
+            'https://upload.wikimedia.org/wikipedia/commons/6/6a/Sun_%28NASA%29.jpg',
+            () => { console.log("Sun texture loaded!"); },
+            undefined,
+            (err) => { console.error("Error loading texture", err); }
+        );
+
         // Sun
         const sunGeometry = new THREE.SphereGeometry(15, 32, 32);
         const sunMaterial = new THREE.MeshStandardMaterial({ map: sunTexture });
