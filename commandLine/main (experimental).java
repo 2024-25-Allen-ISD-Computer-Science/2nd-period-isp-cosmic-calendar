@@ -24,7 +24,7 @@ class Main {
       System.out.println("The date is: " + monthName + " " + want2 + " " + want3);
       
       Scanner planet = new Scanner(System.in);
-      System.out.println("What celestial body do you want to convert?");
+      System.out.println("What celestial body do you want to convert? (Enter 'New Planet' in order to create a new planet with the Celestial Body Editor)") ;
       String body = planet.nextLine();
 
       if (body.equalsIgnoreCase("Mars")) {
@@ -69,6 +69,16 @@ class Main {
       }
       else if (body.equalsIgnoreCase("Earth")) {
         System.out.println("The day on Earth is " + want2 + " " + monthName + " " + want3);
+      }
+      else if (body.equalsIgnoreCase("New Planet")){
+        Scanner np = new Scanner(System.in);
+        System.out.println("Welcome to the Celestial Body Editor! Enter the name of your new planet: ") ;
+        String npName = np.nextLine(); 
+        System.out.println("The name of your planet is: " + npName);
+        Scanner npM = new Scanner(System.in);
+        System.out.println("Enter the mass of your planet (in kilograms) ") ;
+        String npMass = npM.nextLine(); 
+        System.out.println("The mass of your planet is: " + npMass + " kg");
       }
       else {
         System.out.println("Please enter a valid planet");
